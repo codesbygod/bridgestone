@@ -2,7 +2,7 @@
 
 /* One discipline, resolved from the path so /services/steel is a real URL. */
 (function () {
-  const M = window.MERKEL; if (!M) return;
+  const M = window.BRIDGESTONE; if (!M) return;
   const root = document.getElementById('service-detail');
   if (!root) return;
   const esc = M.esc;
@@ -10,7 +10,7 @@
   const id = decodeURIComponent(window.location.pathname.split('/').filter(Boolean).pop() || '');
 
   function render(s, projects) {
-    document.title = `${s.title} | Merkel Constructions`;
+    document.title = `${s.title} | Bridgestone Constructions`;
     const related = projects.filter((p) => (p.services || []).includes(s.title)).slice(0, 3);
 
     root.removeAttribute('data-loading');

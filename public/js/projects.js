@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-  const M = window.MERKEL; if (!M) return;
+  const M = window.BRIDGESTONE; if (!M) return;
   const grid = document.getElementById('projects-grid');
   const bar = document.getElementById('proj-filters');
   if (!grid) return;

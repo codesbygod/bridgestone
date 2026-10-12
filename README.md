@@ -1,6 +1,6 @@
-# Merkel Constructions
+# Bridgestone Constructions
 
-Corporate website and API server for **Merkel Constructions**, a multidisciplinary
+Corporate website and API server for **Bridgestone Constructions**, a multidisciplinary
 construction and engineering practice. A dependency-light Node/Express backend serves a
 multi-page frontend and a small JSON API that powers the content, plus a working
 live-chat endpoint.
@@ -46,10 +46,10 @@ all of it stops under `prefers-reduced-motion`.
 
 | # | Chapter | Carries |
 | - | ------- | ------- |
-| 1 | Hero | Slideshow, the two calls to action, and the practice readout |
+| 1 | Hero | Full-bleed photograph, the two calls to action, and the at-a-glance readout |
 | 2 | Capabilities | The four disciplines, from `/api/services` |
-| 3 | Practice | Counters for the numbers the studio is held to |
-| 4 | Leadership | The founding principal |
+| 3 | Track record | Counters for the numbers the company is held to |
+| 4 | Leadership | The founder and the director of engineering, from `src/data/leadership.json` |
 | 5 | Selected work | Three featured projects, from `/api/projects` |
 | 6 | Contact | The enquiry form itself, not a link to one |
 
@@ -188,24 +188,28 @@ npm run test:browser                    # CHROME_PATH=... if it is not on the de
 
 - Pages share one layout (`src/site/layout.js`) rendered to static HTML at build
   time, so the nav, footer and chat widget stay consistent with no client-side flash.
-- The site is light: off-white ground, ink type, one signal blue. Photography runs
-  at full strength, and where words sit over a picture the ground fades in behind
-  them rather than a dark sheet being laid over the picture. `--bg-rgb` is the one
-  token every one of those washes reads from, so the whole site's brightness is a
-  single edit.
+- The palette is limestone ground, slate type, a deep bridge green (`--accent`,
+  `--deep`) and one brass accent (`--brass`), with a darker bronze (`--accent-2`)
+  wherever the accent is small text on the light ground. Type is Archivo for
+  headings, Manrope for body copy and JetBrains Mono for labels. The palette and
+  type are tokens at the top of `public/css/styles.css`, and the "Bridgestone
+  theme" block at the end of that file has the final say on components.
+  `--bg-rgb` is the one token every wash over a photograph reads from, so the
+  whole site's brightness is a single edit.
 - The home hero runs a **photographic slideshow** (crossfade plus a slow Ken Burns
   zoom) with clickable indicators; motion drops under `prefers-reduced-motion`.
 - Projects, careers and leadership content are rendered from the API, with embedded
   seed data as a fallback so pages never render empty.
-- The brand wordmark is a transparent PNG keyed from the supplied logo card, with
-  the navy in the mark preserved by un-premultiplying it off the paper colour
-  rather than flattening every ink pixel to black.
+- The brand wordmark is an SVG with its lettering outlined, so it renders
+  identically in an `<img>` tag (where web fonts never load) and stays sharp at any
+  size. There is a light version for dark grounds and a dark one for light grounds.
 - Headings reveal with transform and opacity, never a `clip-path` wipe: clipping a
   heading to nothing leaves it with no rendered area, and IntersectionObserver then
   never reports it visible, so the reveal never fires. A browser test asserts every
   `[data-reveal]` on the landing page ends up visible.
-- Section and project imagery lives in `public/assets/img/` as blueprint-style SVGs;
-  swap these for real photography when available.
+- Section, project and portrait photography lives in `public/assets/img/`.
+  Project names, clients, figures and leadership bios in `src/data/` are
+  placeholder copy: replace them with Bridgestone's own before launch.
 
 ## Deploying
 
@@ -263,18 +267,24 @@ without it, writes go to `/tmp` and do not survive between requests.
 
 ## Images
 
-Page-level artwork is a file drop, not a code change: put `merkel1` to `merkel5`
-into `public/assets/img/` (any of `.webp`, `.avif`, `.jpg`, `.jpeg`, `.png`) and the
-next build uses them. Names are matched without regard to case, and `.webp` wins
-when both a PNG and a WebP of the same name are present, so adding an optimised
-copy beside a heavy original is enough to serve it. `merkel1` becomes the underlay behind every page; the rest
-take a chapter each.
+Page-level artwork is a file drop, not a code change: put `hero`, `capabilities`,
+`track-record`, `work`, `studio`, `projects-header`, `careers-header` or
+`contact-header` into `public/assets/img/` (any of `.webp`, `.avif`, `.jpg`, `.jpeg`,
+`.png`) and the next build uses them. Names are matched without regard to case, and
+`.webp` wins when both a PNG and a WebP of the same name are present, so adding an
+optimised copy beside a heavy original is enough to serve it.
+
+The Bridgestone photo set is listed in `src/data/image-sources.json`. Until it is
+copied into the repo the pages load each image's hosted preview;
+`npm run images:fetch` downloads the full-resolution originals, saves them as WebP
+in `public/assets/img/` and points the data files at the local copies.
 
 `src/data/images.json` holds the mapping, where every slot names the file it prefers
 and the placeholder it falls back on, and `src/site/images.js` resolves them at build
 time. So the site never shows a broken image while artwork is still being collected,
 and the build prints which real files it picked up. Per-project images live in
-`src/data/projects.json` and the CEO portrait in `src/data/leadership.json`. See the
+`src/data/projects.json`, per-service images in `src/data/services.json` and the
+leadership portraits in `src/data/leadership.json`. See the
 table in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md#step-1-add-your-images).
 
 ## Configuration

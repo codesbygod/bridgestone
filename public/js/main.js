@@ -1,8 +1,8 @@
 'use strict';
 
 /* =========================================================================
-   Merkel Constructions shared frontend.
-   Exposes helpers on window.MERKEL for per-page scripts, drives shared UI
+   Bridgestone Constructions shared frontend.
+   Exposes helpers on window.BRIDGESTONE for per-page scripts, drives shared UI
    (nav, hero slideshow, reveals, counters, contact form) and hydrates the
    home page. Data comes from the Express API with seed-data fallbacks.
    ========================================================================= */
@@ -29,10 +29,10 @@
     { code: 'S-04', title: 'Digital Engineering', summary: 'BIM coordination, parametric design and digital twins that keep every discipline working from one source of truth.', capabilities: ['BIM / VDC', 'Parametric design', 'Digital twins', 'Clash & 4D scheduling'] }
   ];
   const FALLBACK_PROJECTS = [
-    { id: 'helix-tower', name: 'Helix Tower', sector: 'Commercial', location: 'Hamburg, DE', year: 2025, metric: '184 m', metricLabel: 'structural height', image: '/assets/img/merkel3.webp', blurb: 'A diagrid super-structure that cut steel tonnage by 22 percent against a conventional frame.' },
-    { id: 'north-crossing', name: 'North Crossing', sector: 'Infrastructure', location: 'Aarhus, DK', year: 2024, metric: '410 m', metricLabel: 'cable-stayed span', image: '/assets/img/merkel1.webp', blurb: 'A twin-pylon bridge engineered for extreme fjord wind loading and marine durability.' },
-    { id: 'atlas-plant', name: 'Atlas Process Plant', sector: 'Industrial', location: 'Duisburg, DE', year: 2024, metric: '38%', metricLabel: 'energy reduction', image: '/assets/img/merkel4.webp', blurb: 'A heat-recovery redesign of a continuous process line, recommissioned with zero downtime.' },
-    { id: 'meridian-transit', name: 'Meridian Transit Hub', sector: 'Transit', location: 'Lyon, FR', year: 2023, metric: '60k / day', metricLabel: 'passenger capacity', image: '/assets/img/merkel2.webp', blurb: 'A long-span steel canopy and below-grade concourse delivered on a live rail corridor.' }
+    { id: 'harbourline-tower', name: 'Harbourline Tower', sector: 'Commercial', location: 'City waterfront', year: 2025, metric: '168 m', metricLabel: 'structural height', image: 'https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160122_c4f1ac0a-34e7-4ef4-9be8-075ce230d734_min.webp', blurb: 'An exterior diagrid that delivered column-free floors on a fifth less steel than a conventional frame.' },
+    { id: 'estuary-crossing', name: 'Estuary Crossing', sector: 'Infrastructure', location: 'Coastal estuary', year: 2024, metric: '420 m', metricLabel: 'cable-stayed span', image: 'https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155924_c247e1e3-73ee-402c-9f6f-e4fd7f441498_min.webp', blurb: 'Twin concrete pylons carrying road and light rail across an exposed tidal estuary.' },
+    { id: 'ridgeway-plant', name: 'Ridgeway Process Plant', sector: 'Industrial', location: 'Industrial park', year: 2024, metric: '35%', metricLabel: 'energy reduction', image: 'https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160124_4b4058ec-ab9e-4972-99fa-a97acfb36199_min.webp', blurb: 'A heat recovery rebuild of a continuous process line, installed without a day of lost production.' },
+    { id: 'central-station-canopy', name: 'Central Station Canopy', sector: 'Transit', location: 'City centre', year: 2023, metric: '92 m', metricLabel: 'clear-span canopy', image: 'https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160122_4050d56a-3375-4fb8-bcf8-9b9e01402600_min.webp', blurb: 'A 92 metre steel and glass canopy raised over platforms that stayed open throughout.' }
   ];
 
   function projectCard(p) {
@@ -123,7 +123,7 @@
     }
   }
 
-  window.MERKEL = { $, $$, esc, fetchJSON, reduceMotion, projectCard, observeReveals, FALLBACK_PROJECTS, site };
+  window.BRIDGESTONE = { $, $$, esc, fetchJSON, reduceMotion, projectCard, observeReveals, FALLBACK_PROJECTS, site };
 
   /* Nav, scroll progress, underlay parallax, chapter rail ----------------- */
   const nav = $('#nav');

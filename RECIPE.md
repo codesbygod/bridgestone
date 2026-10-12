@@ -1,9 +1,10 @@
 # Rebuilding this stack on another site
 
-Ported from the tested build at `Lipstickmme/hospital`. The schema, the
-security model and the email plumbing transfer unchanged; the front end here is
-static HTML and vanilla JS rather than TanStack Start, so the client-side parts
-are written differently while making the same decisions.
+How the Bridgestone Constructions backend is put together, written so the same
+stack can be rebuilt on another site. The schema, the security model and the
+email plumbing transfer unchanged; the front end here is static HTML and
+vanilla JS, so on a site with a framework the client-side parts are written
+differently while making the same decisions.
 
 ## File structure
 

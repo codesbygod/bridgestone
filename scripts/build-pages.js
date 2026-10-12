@@ -28,5 +28,5 @@ const picked = Array.from(new Set(images._resolved));
 if (picked.length) {
   console.log(`[build] using ${picked.length} supplied image(s): ${picked.join(', ')}`);
 } else {
-  console.log('[build] no merkel1..merkel5 found in public/assets/img: using placeholders');
+  console.log('[build] no page-level images in public/assets/img: using the fallbacks named in src/data/images.json');
 }

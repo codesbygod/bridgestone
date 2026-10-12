@@ -35,29 +35,29 @@ function chapter({ id, label, image, tone = '', inner }) {
 /* ---------- Landing ---------- */
 
 const heroSection = `
-  <section class="hero chapter" id="top" data-chapter="Merkel">
+  <section class="hero chapter" id="top" data-chapter="Home">
     <div class="hero-slides" id="hero-slides" aria-hidden="true">
       ${images.heroSlides.map((src, i) => `<div class="slide${i === 0 ? ' is-active' : ''}" style="background-image:url('${src}')"></div>`).join('\n      ')}
     </div>
     <div class="hero-scrim" aria-hidden="true"></div>
     <div class="hero-inner wrap">
       <div class="hero-copy">
-        <span class="eyebrow hero-tag" data-reveal>Structural, civil, mechanical and digital engineering</span>
-        <h1 data-reveal>Built to stand.</h1>
-        <p class="hero-sub" data-reveal>Engineering for the buildings and infrastructure that have to last.</p>
+        <span class="eyebrow hero-tag" data-reveal>Bridges &middot; Buildings &middot; Infrastructure</span>
+        <h1 data-reveal>Solid from the ground up.</h1>
+        <p class="hero-sub" data-reveal>Bridgestone Constructions designs and builds the bridges, buildings and infrastructure that communities rely on for generations.</p>
         <div class="hero-actions" data-reveal>
           <a href="/projects" class="btn">View projects <span class="arw">&rsaquo;</span></a>
-          <a href="#contact" class="btn ghost">Contact us <span class="arw">&rsaquo;</span></a>
+          <a href="#contact" class="btn ghost">Start a project <span class="arw">&rsaquo;</span></a>
         </div>
         <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Background slides">
           ${images.heroSlides.map((src, i) => `<button class="dot${i === 0 ? ' is-active' : ''}" data-slide="${i}" aria-label="Slide ${i + 1}"></button>`).join('\n          ')}
         </div>
       </div>
     </div>
-    <div class="hero-readout" aria-label="Practice at a glance">
-      <div class="cell"><span class="k">Founded</span><span class="v">1998</span></div>
-      <div class="cell"><span class="k">Disciplines</span><span class="v">Four core</span></div>
-      <div class="cell"><span class="k">Projects delivered</span><span class="v">640+</span></div>
+    <div class="hero-readout" aria-label="Bridgestone at a glance">
+      <div class="cell"><span class="k">Established</span><span class="v">2009</span></div>
+      <div class="cell"><span class="k">Delivery</span><span class="v">Design &amp; build</span></div>
+      <div class="cell"><span class="k">Projects delivered</span><span class="v">350+</span></div>
     </div>
   </section>`;
 
@@ -68,28 +68,28 @@ const capabilitiesSection = chapter({
   inner: `
       <div class="section-head" data-reveal>
         <span class="eyebrow">01 / Capabilities</span>
-        <h2>Four disciplines, one coordinated model.</h2>
-        <p>Structure, ground, systems and data are coordinated in one model, so nothing is lost in the gap between two sets of drawings.</p>
+        <h2>One team, from first sketch to handover.</h2>
+        <p>Design, ground, structure and delivery sit under one roof, so the people who draw your project are the people who build it.</p>
       </div>
       <div class="services-grid" id="services-grid"></div>`,
 });
 
 const metricsSection = chapter({
   id: 'metrics',
-  label: 'Practice',
+  label: 'Track record',
   image: images.metrics,
   tone: 'is-centred',
   inner: `
       <div class="section-head centred" data-reveal>
-        <span class="eyebrow">02 / The practice</span>
-        <h2>Twenty seven years of load paths.</h2>
-        <p>Figures our clients can check against the projects they name.</p>
+        <span class="eyebrow">02 / Track record</span>
+        <h2>Seventeen years of getting it built.</h2>
+        <p>Numbers our clients can check against the projects they name.</p>
       </div>
       <div class="stats-grid" data-reveal>
-        <div class="stat"><div class="num" data-count="640" data-suffix="+">0</div><div class="lbl">Projects delivered</div></div>
-        <div class="stat"><div class="num" data-count="27" data-suffix="">0</div><div class="lbl">Years in practice</div></div>
-        <div class="stat"><div class="num"><em data-count="22" data-suffix="%">0</em></div><div class="lbl">Average material saved</div></div>
-        <div class="stat"><div class="num" data-count="14" data-suffix="">0</div><div class="lbl">Countries built in</div></div>
+        <div class="stat"><div class="num" data-count="350" data-suffix="+">0</div><div class="lbl">Projects delivered</div></div>
+        <div class="stat"><div class="num" data-count="17" data-suffix="">0</div><div class="lbl">Years building</div></div>
+        <div class="stat"><div class="num"><em data-count="96" data-suffix="%">0</em></div><div class="lbl">Handed over on time</div></div>
+        <div class="stat"><div class="num" data-count="1200" data-suffix="+">0</div><div class="lbl">People on our sites</div></div>
       </div>`,
 });
 
@@ -111,7 +111,7 @@ const leadershipSection = chapter({
           <blockquote>&ldquo;${person.quote}&rdquo;</blockquote>
           <h3>${person.name}</h3>
           <p>${person.bio}</p>
-          ${i === leadership.length - 1 ? '<a href="/careers" class="link-arrow">Join the studio <span class="arw">&rsaquo;</span></a>' : ''}
+          ${i === leadership.length - 1 ? '<a href="/careers" class="link-arrow">Join the team <span class="arw">&rsaquo;</span></a>' : ''}
         </div>
       </div>`)
     .join('\n'),
@@ -126,7 +126,7 @@ const workSection = chapter({
         <div>
           <span class="eyebrow">04 / Selected work</span>
           <h2>Recent projects.</h2>
-          <p>Four commissions from the last three years.</p>
+          <p>Highlights from the last three years of work.</p>
         </div>
         <a href="/projects" class="btn ghost">All projects <span class="arw">&rsaquo;</span></a>
       </div>
@@ -141,8 +141,8 @@ const contactSection = chapter({
       <div class="contact-grid">
         <div class="contact-info" data-reveal>
           <span class="eyebrow">05 / Start a project</span>
-          <h2>Bring us the hard part.</h2>
-          <p class="contact-lede">Send us the drawing set, the constraint you keep running into, or a paragraph on the site. A principal engineer reads it and replies within two working days.</p>
+          <h2>Tell us what you are building.</h2>
+          <p class="contact-lede">Send drawings, a site address or a few lines about the idea. A senior engineer reads every enquiry and replies within two working days.</p>
           <div class="contact-detail">
             <div class="row"><div class="k">Email</div><div class="val"><a href="mailto:${site.email}" data-site="email">${site.email}</a></div></div>
           </div>
@@ -163,7 +163,7 @@ const indexContent = [
 
 /* ---------- Projects listing ---------- */
 const projectsContent = `
-  ${pageHeader({ eyebrow: 'Selected work', title: 'Projects.', sub: 'Towers, bridges, industrial plant and transit, from first scheme to handover.', image: images.projectsHeader })}
+  ${pageHeader({ eyebrow: 'Selected work', title: 'Projects.', sub: 'Bridges, towers, industrial plant and transit, from first scheme to handover.', image: images.projectsHeader })}
   <section class="section-pad">
     <div class="wrap">
       <div class="proj-filters" id="proj-filters" data-reveal></div>
@@ -179,7 +179,7 @@ const projectContent = `
 
 /* ---------- Services listing ---------- */
 const servicesContent = `
-  ${pageHeader({ eyebrow: 'What we do', title: 'Services.', sub: 'Eight disciplines under one roof, from the ground investigation to the day the plant runs.', image: images.capabilities })}
+  ${pageHeader({ eyebrow: 'What we do', title: 'Services.', sub: 'Eight disciplines under one roof, from the first ground investigation to the day we hand over the keys.', image: images.capabilities })}
   <section class="section-pad">
     <div class="wrap">
       <div class="service-index" id="service-index"></div>
@@ -240,14 +240,14 @@ const applyContent = `
 
 /* ---------- Careers ---------- */
 const careersContent = `
-  ${pageHeader({ eyebrow: 'Careers', title: 'Build things that stand.', sub: 'We are a studio of senior engineers who stay on the work rather than moving to management. If that is the career you want, write to us.', image: images.careersHeader })}
+  ${pageHeader({ eyebrow: 'Careers', title: 'Build what lasts.', sub: 'Our engineers and site leads stay close to the work, from the first drawing to the last inspection. If that is the career you want, we would like to hear from you.', image: images.careersHeader })}
   <section class="section-pad">
     <div class="wrap careers-intro" data-reveal>
       <div>
-        <span class="eyebrow">Life at Merkel</span>
-        <h2>Engineering as a design discipline.</h2>
+        <span class="eyebrow">Life at Bridgestone</span>
+        <h2>Engineers who build, builders who engineer.</h2>
       </div>
-      <p>Our engineers join a project at the first sketch rather than the final check, so the person who sizes a member is in the room when the idea is still being drawn. Juniors sit with principals and take their own packages early. We work across borders on landmark structures, and we buy the tools our people ask for, from parametric modelling to digital twins.</p>
+      <p>At Bridgestone the design office and the site are one team. Engineers join a project at the first sketch and follow it onto site, so the person who sizes a beam sees it lifted into place. Graduates work beside directors and run their own packages early, and we invest in the tools our people ask for, from parametric modelling to digital twins.</p>
     </div>
   </section>
   <section class="section-pad alt">
@@ -266,16 +266,18 @@ const careersContent = `
 
 /* ---------- Contact ---------- */
 const contactContent = `
-  ${pageHeader({ eyebrow: 'Start a project', title: 'Contact us.', sub: 'Send us the drawing set, the constraint you keep running into, or a paragraph on the site. A principal engineer replies within two working days.', image: images.contactHeader })}
+  ${pageHeader({ eyebrow: 'Start a project', title: 'Contact us.', sub: 'Send drawings, a site address or a few lines about the idea. A senior engineer replies within two working days.', image: images.contactHeader })}
   <section class="section-pad">
     <div class="wrap contact-grid">
       <div class="contact-info" data-reveal>
         <div class="contact-detail">
           <div class="row"><div class="k">Email</div><div class="val"><a href="mailto:${site.email}" data-site="email">${site.email}</a></div></div>
+          <div class="row" data-site-row="phone"${site.phone ? '' : ' hidden'}><div class="k">Telephone</div><div class="val"><a href="tel:${site.phone.replace(/[^+\d]/g, '')}" data-site="phone">${site.phone}</a></div></div>
+          <div class="row" data-site-row="address"${site.address ? '' : ' hidden'}><div class="k">Office</div><div class="val" data-site="address">${site.address}</div></div>
           <div class="row"><div class="k">Hours</div><div class="val" data-site="hours">${site.hours}</div></div>
         </div>
         <div class="contact-note">
-          <p>Every enquiry lands on the studio desk and a principal engineer picks it up. If you would rather talk now, the live chat in the corner reaches the same people.</p>
+          <p>Every enquiry is read by a senior engineer, not a sales team. If you would rather talk now, the live chat in the corner reaches the same people.</p>
         </div>
       </div>
 
@@ -292,7 +294,7 @@ const adminContent = `
 
     <section class="admin-gate" id="admin-unconfigured" hidden>
       <div class="admin-card">
-        <span class="eyebrow">Merkel / Studio desk</span>
+        <span class="eyebrow">Bridgestone / Studio desk</span>
         <h1>Backend not connected.</h1>
         <div id="admin-missing"></div>
         <p class="admin-note">Set it in the deployment's environment variables and reload. Nothing needs rebuilding, but the change only reaches a running deployment after a redeploy.</p>
@@ -303,7 +305,7 @@ const adminContent = `
 
     <section class="admin-gate" id="admin-login" hidden>
       <form class="admin-card" id="login-form" novalidate>
-        <span class="eyebrow">Merkel / Studio desk</span>
+        <span class="eyebrow">Bridgestone / Studio desk</span>
         <h1>Staff sign in.</h1>
         <p class="admin-note" id="login-note">Enquiries, live chat and studio mail in one place.</p>
         <div class="field"><label for="login-email">Email</label><input type="email" id="login-email" name="email" autocomplete="username" required /></div>
@@ -317,7 +319,7 @@ const adminContent = `
     <div class="admin-shell" id="admin-shell" hidden>
       <header class="admin-bar">
         <a class="admin-brand" href="/">
-          <img src="/assets/brand/merkel-constructions-wordmark.png" alt="Merkel Constructions" width="1048" height="203" />
+          <img src="/assets/brand/bridgestone-wordmark-dark.svg" alt="Bridgestone Constructions" width="1016" height="200" />
           <span>Studio desk</span>
         </a>
         <div class="admin-bar-end">
@@ -376,24 +378,24 @@ const notFoundContent = `
   <section class="notfound">
     <div class="wrap">
       <span class="eyebrow">Error 404</span>
-      <h1>Off the drawings.</h1>
-      <p>This page has moved or never existed. The links below will get you back.</p>
+      <h1>This bridge is out.</h1>
+      <p>The page you were looking for has moved or never existed. The links below will get you back on solid ground.</p>
       <div class="hero-actions"><a href="/" class="btn">Back to home <span class="arw">&rsaquo;</span></a><a href="/projects" class="btn ghost">View projects</a></div>
     </div>
   </section>`;
 
 module.exports = [
-  { file: 'index.html', active: '', bodyClass: 'page-home', title: 'Merkel Constructions', description: 'Merkel Constructions is a multidisciplinary consultancy delivering structural, civil, mechanical and digital engineering for buildings and infrastructure.', content: indexContent },
-  { file: 'projects.html', active: 'projects', bodyClass: 'page-projects', title: 'Projects | Merkel Constructions', description: 'Selected engineering projects: towers, bridges, industrial plant and transit.', content: projectsContent, extraScripts: ['/js/projects.js'] },
-  { file: 'project.html', active: 'projects', bodyClass: 'page-project', title: 'Project | Merkel Constructions', description: 'Project detail.', content: projectContent, extraScripts: ['/js/project.js'] },
-  { file: 'services.html', active: 'services', bodyClass: 'page-services', title: 'Services | Merkel Constructions', description: 'Structural, civil, mechanical, digital, steel, groundworks, plant construction and commissioning.', content: servicesContent, extraScripts: ['/js/services.js'] },
-  { file: 'service.html', active: 'services', bodyClass: 'page-service', title: 'Service | Merkel Constructions', description: 'Service detail.', content: serviceContent, extraScripts: ['/js/service.js'] },
-  { file: 'apply.html', active: 'careers', bodyClass: 'page-apply', title: 'Apply | Merkel Constructions', description: 'Apply to Merkel Constructions. One form, read by the people you would work with.', content: applyContent, extraScripts: ['/js/apply.js'] },
-  { file: 'careers.html', active: 'careers', bodyClass: 'page-careers', title: 'Careers | Merkel Constructions', description: 'Open engineering roles at Merkel Constructions across structural, civil, mechanical and digital teams.', content: careersContent, extraScripts: ['/js/careers.js'] },
-  { file: 'contact.html', active: 'contact', bodyClass: 'page-contact', title: 'Contact us | Merkel Constructions', description: 'Contact Merkel Constructions to start a project. A principal engineer replies within two working days.', content: contactContent },
+  { file: 'index.html', active: '', bodyClass: 'page-home', title: 'Bridgestone Constructions', description: 'Bridgestone Constructions designs and builds bridges, buildings and infrastructure, with structural, civil, mechanical and digital engineering under one roof.', content: indexContent },
+  { file: 'projects.html', active: 'projects', bodyClass: 'page-projects', title: 'Projects | Bridgestone Constructions', description: 'Selected Bridgestone Constructions projects: bridges, towers, industrial plant and transit.', content: projectsContent, extraScripts: ['/js/projects.js'] },
+  { file: 'project.html', active: 'projects', bodyClass: 'page-project', title: 'Project | Bridgestone Constructions', description: 'Project detail.', content: projectContent, extraScripts: ['/js/project.js'] },
+  { file: 'services.html', active: 'services', bodyClass: 'page-services', title: 'Services | Bridgestone Constructions', description: 'Structural, civil, mechanical, digital, steel, groundworks, plant construction and commissioning.', content: servicesContent, extraScripts: ['/js/services.js'] },
+  { file: 'service.html', active: 'services', bodyClass: 'page-service', title: 'Service | Bridgestone Constructions', description: 'Service detail.', content: serviceContent, extraScripts: ['/js/service.js'] },
+  { file: 'apply.html', active: 'careers', bodyClass: 'page-apply', title: 'Apply | Bridgestone Constructions', description: 'Apply to Bridgestone Constructions. One form, read by the people you would work with.', content: applyContent, extraScripts: ['/js/apply.js'] },
+  { file: 'careers.html', active: 'careers', bodyClass: 'page-careers', title: 'Careers | Bridgestone Constructions', description: 'Open engineering roles at Bridgestone Constructions across structural, civil, mechanical and digital teams.', content: careersContent, extraScripts: ['/js/careers.js'] },
+  { file: 'contact.html', active: 'contact', bodyClass: 'page-contact', title: 'Contact us | Bridgestone Constructions', description: 'Contact Bridgestone Constructions to start a project. A senior engineer replies within two working days.', content: contactContent },
   { file: 'admin.html', active: '', bodyClass: 'page-admin', bare: true, noindex: true,
     styles: ['/css/admin.css'],
-    title: 'Studio desk | Merkel Constructions', description: 'Staff dashboard.',
+    title: 'Studio desk | Bridgestone Constructions', description: 'Staff dashboard.',
     content: adminContent, extraScripts: ['/js/supabase-lite.js', '/js/admin.js'] },
-  { file: '404.html', active: '', bodyClass: 'page-404', title: 'Page not found | Merkel Constructions', description: 'Page not found.', content: notFoundContent },
+  { file: '404.html', active: '', bodyClass: 'page-404', title: 'Page not found | Bridgestone Constructions', description: 'Page not found.', content: notFoundContent },
 ];

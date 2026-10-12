@@ -1,4 +1,4 @@
--- Merkel Constructions backend schema.
+-- Bridgestone Constructions backend schema.
 --
 -- Safe to run more than once: every statement is guarded, so re-running the
 -- file after an edit updates what changed rather than erroring half way.

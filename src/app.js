@@ -37,7 +37,7 @@ app.use((req, res, next) => {
   const start = Date.now();
   res.on('finish', () => {
     const ms = Date.now() - start;
-    console.log(`[merkel] ${req.method} ${req.originalUrl} -> ${res.statusCode} (${ms}ms)`);
+    console.log(`[bridgestone] ${req.method} ${req.originalUrl} -> ${res.statusCode} (${ms}ms)`);
   });
   next();
 });

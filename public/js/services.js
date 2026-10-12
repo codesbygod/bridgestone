@@ -2,7 +2,7 @@
 
 /* The services index. Each discipline is a row that opens its own page. */
 (function () {
-  const M = window.MERKEL; if (!M) return;
+  const M = window.BRIDGESTONE; if (!M) return;
   const wrap = document.getElementById('service-index');
   if (!wrap) return;
   const esc = M.esc;

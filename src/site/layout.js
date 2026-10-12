@@ -11,6 +11,17 @@ const images = require('./images');
 const site = require('../data/site.json');
 
 const YEAR = new Date().getFullYear();
+const SITE_URL = 'https://bridgestoneconstructions.com';
+const SITE_NAME = 'Bridgestone Constructions';
+
+/** Absolute URL for a page or asset, for canonical and social tags. */
+const absolute = (href) => (/^https?:\/\//.test(href) ? href : SITE_URL + href);
+
+/** The public path of a built page, or null for pages that should not be canonicalised. */
+function canonicalPath(file) {
+  if (!file || ['404.html', 'admin.html', 'project.html', 'service.html'].includes(file)) return null;
+  return file === 'index.html' ? '/' : '/' + file.replace(/\.html$/, '');
+}
 
 /**
  * The image that sits behind every page, fixed to the viewport so the whole
@@ -52,28 +63,38 @@ function contactForm(id = 'contact-form') {
             </select><div class="err" data-err="service"></div>
           </div>
         </div>
-        <div class="field"><label for="${id}-message">Project brief</label><textarea id="${id}-message" name="message" placeholder="What are you building, and where does it get hard?" required></textarea><div class="err" data-err="message"></div></div>
+        <div class="field"><label for="${id}-message">Project brief</label><textarea id="${id}-message" name="message" placeholder="What are you building, where is it, and what is your timeline?" required></textarea><div class="err" data-err="message"></div></div>
         <div class="honeypot" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
         <div class="form-status" data-form-status role="status" aria-live="polite"></div>
         <button type="submit" class="btn" data-submit>Send enquiry <span class="arw">&rsaquo;</span></button>
       </form>`;
 }
 
-function head({ title, description, noindex = false, styles = [] }) {
+function head({ title, description, file, noindex = false, styles = [] }) {
+  const canonical = canonicalPath(file);
+  const social = noindex ? '' : `
+  <meta property="og:site_name" content="${SITE_NAME}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="${title}" />
+  <meta property="og:description" content="${description}" />${canonical ? `
+  <meta property="og:url" content="${SITE_URL}${canonical}" />
+  <link rel="canonical" href="${SITE_URL}${canonical}" />` : ''}
+  <meta property="og:image" content="${absolute(images.heroSlides[0])}" />
+  <meta name="twitter:card" content="summary_large_image" />`;
   return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${title}</title>
-  <meta name="description" content="${description}" />${noindex ? '\n  <meta name="robots" content="noindex, nofollow" />' : ''}
-  <meta name="theme-color" content="#fafaf9" />
+  <meta name="description" content="${description}" />${noindex ? '\n  <meta name="robots" content="noindex, nofollow" />' : ''}${social}
+  <meta name="theme-color" content="#14212b" />
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="icon" href="/favicon.png" type="image/png" sizes="512x512" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/styles.css" />
   ${styles.map((href) => `<link rel="stylesheet" href="${href}" />`).join('\n  ')}
 </head>`;
@@ -84,8 +105,8 @@ function nav(active = '') {
     `<a href="${href}"${key === active ? ' class="is-active"' : ''}>${label}</a>`;
   return `
   <header class="nav" id="nav">
-    <a class="brand" href="/" aria-label="Merkel Constructions home">
-      <img class="brand-logo" src="/assets/brand/merkel-constructions-wordmark-light.png" alt="Merkel Constructions" width="1048" height="203" />
+    <a class="brand" href="/" aria-label="Bridgestone Constructions home">
+      <img class="brand-logo" src="/assets/brand/bridgestone-wordmark-light.svg" alt="Bridgestone Constructions" width="1016" height="200" />
     </a>
     <nav class="nav-links" id="navlinks">
       ${link('/projects', 'Projects', 'projects')}
@@ -105,8 +126,8 @@ function footer() {
   <footer class="footer">
     <div class="wrap footer-top">
       <div class="footer-brand">
-        <img class="brand-logo footer-logo" src="/assets/brand/merkel-constructions-wordmark-light.png" alt="Merkel Constructions" width="1048" height="203" />
-        <p>Engineering for buildings and infrastructure.</p>
+        <img class="brand-logo footer-logo" src="/assets/brand/bridgestone-wordmark-light.svg" alt="Bridgestone Constructions" width="1016" height="200" />
+        <p>Bridges, buildings and infrastructure, designed and built to last.</p>
       </div>
       <div class="col">
         <h5>Company</h5>
@@ -122,7 +143,8 @@ function footer() {
       </div>
     </div>
     <div class="wrap footer-bottom">
-      <span>&copy; ${YEAR} Merkel Constructions B.V.</span>
+      <span>&copy; ${YEAR} Bridgestone Constructions. All rights reserved.</span>
+      <span>bridgestoneconstructions.com</span>
     </div>
   </footer>`;
 }
@@ -139,7 +161,7 @@ function chatWidget() {
         <div class="chat-head-id">
           <span class="dot"></span>
           <div>
-            <strong>Merkel Studio</strong>
+            <strong>Bridgestone team</strong>
             <small>Typically replies in a few minutes</small>
           </div>
         </div>

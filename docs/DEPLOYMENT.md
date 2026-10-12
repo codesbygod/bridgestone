@@ -1,4 +1,4 @@
-# Deploying Merkel Constructions to Vercel
+# Deploying Bridgestone Constructions to Vercel
 
 A step-by-step guide for the workflow: replace the images, fork to your GitHub,
 deploy on Vercel, then switch the backend on.
@@ -28,54 +28,65 @@ and local JSON files otherwise, so development works offline with no setup.
 
 ## Step 1: Add your images
 
-All current artwork is generated blueprint-style placeholder SVG. The five
-page-level images need no code change at all: **drop them into
-`public/assets/img/` named `merkel1` to `merkel5`** and the next build picks them
-up. Any of `.webp`, `.avif`, `.jpg`, `.jpeg`, `.png` works, and `.webp` is chosen
-first if more than one is present.
+**First, bring the photography into the repo.** The Bridgestone photo set was
+generated for this site and is listed in `src/data/image-sources.json`. Until the
+files are copied in, the pages load a preview of each one from where it is
+hosted. On any machine with internet access, run:
+
+```bash
+npm install --no-save sharp   # optional, for WebP output
+npm run images:fetch          # downloads, optimises, rewrites the references
+npm run build
+git add public/assets/img src/data public/js/main.js && git commit -m "Self-host photography"
+```
+
+After that every image is served from `public/assets/img/` and the hosted copies
+are no longer used.
+
+Replacing any
+page-level image needs no code change: **drop a file into `public/assets/img/`
+with the slot's name** and the next build picks it up. Any of `.webp`, `.avif`,
+`.jpg`, `.jpeg`, `.png` works, and `.webp` is chosen first if more than one is
+present.
 
 | File | Where it appears | Suggested size |
 | ---- | ---------------- | -------------- |
-| `merkel1` | The underlay behind every page, and the first hero slide | 2400 x 1400 |
-| `merkel2` | Capabilities chapter, and the second hero slide | 1920 x 1200 |
-| `merkel3` | Practice chapter, the third hero slide, and the `/careers` header | 1920 x 1200 |
-| `merkel4` | Selected work chapter and the `/projects` header | 1920 x 1200 |
-| `merkel5` | Contact chapter and the `/contact` header | 1920 x 1200 |
-
-Project and service artwork is named per item in `src/data/projects.json` and
-`src/data/services.json`, so those take any filename you like.
-
-`merkel1` carries the most weight: it is fixed behind the whole site, so pick the
-one that reads as the studio's signature and has calm space rather than busy
-detail in the middle, where headlines sit.
+| `hero` | The landing page hero | 2400 x 1030 (21:9) |
+| `capabilities` | Capabilities chapter and the `/services` header | 1920 x 1080 |
+| `track-record` | Track record chapter and the `/apply` header | 1920 x 1080 |
+| `work` | Selected work chapter | 1920 x 1080 |
+| `studio` | Contact chapter | 1920 x 1080 |
+| `projects-header` | The `/projects` header | 2400 x 1030 |
+| `careers-header` | The `/careers` header | 1920 x 1080 |
+| `contact-header` | The `/contact` header | 1920 x 1080 |
 
 The mapping lives in `src/data/images.json`. Each slot names the file it prefers
-and the placeholder it falls back on, so the site never shows a broken image
-while you are still collecting artwork, and swapping any single slot is one line.
+and the placeholder it falls back on (`/assets/img/placeholder.svg`), so the site
+never shows a broken image while you are still collecting artwork, and swapping
+any single slot is one line.
 
 **Per-project images.** Edit the `image` field in `src/data/projects.json` (one per
 project; used for the card thumbnail and the detail-page figure). Suggested size
-1200 x 820.
+1500 x 1000 (3:2).
 
-**CEO portrait.** Edit the `image` field in `src/data/leadership.json`. Suggested
-size 760 x 950 (4:5 portrait).
+**Per-service images.** Edit the `image` field in `src/data/services.json`.
 
-**Logo.** Already your artwork, in `public/assets/brand/`.
+**Leadership portraits.** Edit the `image` field in `src/data/leadership.json`.
+Suggested size 1080 x 1350 (4:5 portrait).
+
+**Logo.** `public/assets/brand/` holds the wordmark for dark backgrounds
+(`bridgestone-wordmark-light.svg`), for light backgrounds
+(`bridgestone-wordmark-dark.svg`) and the square mark used for the favicons.
 
 Notes:
 
-- Names are matched without regard to case, so `Merkel3.png` and `merkel3.png`
-  both work. That matters: the deploy runs on Linux, where the two are
-  different files.
-- Keep files under about 400 KB each. The underlay is fetched on every page, so
-  a 1.2 MB PNG there is felt on every visit. Save a WebP copy beside the
-  original (same name, `.webp`) and it is used in preference automatically:
-  the current photographs went from about 1.2 MB each to under 125 KB that way,
-  with no visible difference behind the scrim.
-- If a number is missing, its slot borrows another supplied photograph rather
-  than dropping back to a placeholder drawing, so the site never mixes the two.
-- Everything sits behind a dark scrim, so pick images that stay readable when
-  darkened; a bright sky behind white type is the usual regret.
+- Names are matched without regard to case, so `Hero.png` and `hero.png` both
+  work. That matters: the deploy runs on Linux, where the two are different
+  files.
+- Keep files under about 400 KB each. Save a WebP copy beside the original
+  (same name, `.webp`) and it is used in preference automatically.
+- If a header image is missing, its slot borrows another supplied photograph
+  rather than dropping back to the placeholder.
 - `public/js/main.js` has a small `FALLBACK_PROJECTS` list used only if the API is
   unreachable. Update those paths too if you rename project image files (optional).
 - Run `npm run build` after adding files, or let Vercel do it on deploy. The build
@@ -165,7 +176,7 @@ come next.
 
 6. **Redeploy** so the function picks the variables up.
 
-The function logs `[merkel] storage: Supabase` on the next request. Confirm what the
+The function logs `[bridgestone] storage: Supabase` on the next request. Confirm what the
 running server can actually see with:
 
 ```bash
@@ -240,7 +251,7 @@ The page refreshes itself every few seconds while it is the visible tab.
    | ---- | ----- |
    | `RESEND_API_KEY` | the key you copied |
    | `FORM_TO` | where enquiries land (comma-separate for several) |
-   | `FORM_FROM` | `Merkel Website <onboarding@resend.dev>` to start |
+   | `FORM_FROM` | `Bridgestone Website <onboarding@resend.dev>` to start |
 
 4. **Redeploy.**
 
@@ -250,7 +261,7 @@ directly. Set `CHAT_NOTIFY=off` to keep enquiry emails but stop chat emails.
 
 For production, verify your domain in Resend (**Domains, Add Domain**, then add the
 DNS records) and change `FORM_FROM` to something like
-`Merkel Website <studio@yourdomain.com>`. Mail from a verified domain is far less
+`Bridgestone Website <studio@yourdomain.com>`. Mail from a verified domain is far less
 likely to be treated as spam.
 
 ---

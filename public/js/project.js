@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-  const M = window.MERKEL; if (!M) return;
+  const M = window.BRIDGESTONE; if (!M) return;
   const root = document.getElementById('project-detail');
   if (!root) return;
   const esc = M.esc;
@@ -18,8 +18,17 @@
   }
 
   function render(project, next) {
-    document.title = project.name + ' | Merkel Constructions';
-    const facts = (project.facts || []).map((f) => `<div class="fact"><span class="k">${esc(f.k)}</span><span class="v">${esc(f.v)}</span></div>`).join('');
+    document.title = project.name + ' | Bridgestone Constructions';
+    // Key facts come from the project's own fields unless it lists its own.
+    const factList = project.facts || [
+      project.metric && { k: project.metricLabel || 'Key figure', v: project.metric },
+      { k: 'Sector', v: project.sector },
+      { k: 'Location', v: project.location },
+      project.status && { k: 'Status', v: project.status },
+      project.duration && { k: 'Programme', v: project.duration },
+      project.client && { k: 'Client', v: project.client },
+    ].filter((f) => f && f.v);
+    const facts = factList.map((f) => `<div class="fact"><span class="k">${esc(f.k)}</span><span class="v">${esc(f.v)}</span></div>`).join('');
     const services = (project.services || []).map((s) => `<span>${esc(s)}</span>`).join('');
     root.innerHTML = `
       <header class="page-header project-hero">
@@ -62,7 +71,7 @@
     if (!id) return notFound();
     try {
       const d = await M.fetchJSON('/api/projects/' + encodeURIComponent(id));
-      render(d.project, d.next || { id: 'helix-tower', name: 'Helix Tower' });
+      render(d.project, d.next || { id: 'harbourline-tower', name: 'Harbourline Tower' });
     } catch (e) { notFound(); }
   })();
 })();

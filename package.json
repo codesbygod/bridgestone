@@ -1,13 +1,14 @@
 {
-  "name": "merkel-constructions",
+  "name": "bridgestone-constructions",
   "version": "1.0.0",
-  "description": "Merkel Constructions corporate website and API server",
+  "description": "Bridgestone Constructions corporate website and API server",
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
     "start": "node server.js",
     "dev": "node scripts/build-pages.js && node --watch server.js",
     "build": "node scripts/build-pages.js",
+    "images:fetch": "node scripts/fetch-images.js",
     "prestart": "node scripts/build-pages.js",
     "check:vercel": "node scripts/check-vercel-upload.js",
     "test": "node test/api.test.js",
@@ -21,7 +22,7 @@
     "express",
     "website"
   ],
-  "author": "Merkel Constructions",
+  "author": "Bridgestone Constructions",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {

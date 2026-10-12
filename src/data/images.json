@@ -1,78 +1,64 @@
 {
-  "_comment": "Page-level image slots. Each slot lists the files it would like, best first, and the placeholder it falls back on if none is there. Names are matched without regard to case and any of .webp .avif .jpg .jpeg .png works, with .webp preferred, so adding photography is a file drop into public/assets/img/ and needs no code change. The second and third preferences let a site with only some of merkel1..merkel5 still show photography everywhere rather than a mix of photographs and placeholder drawings. Per-project images live in projects.json; the CEO portrait lives in leadership.json.",
+  "_comment": "Page-level image slots. Each slot lists the files it would like, best first, and the placeholder it falls back on if none is there. Names are matched without regard to case and any of .webp .avif .jpg .jpeg .png works, with .webp preferred, so replacing photography is a file drop into public/assets/img/ and needs no code change. Per-project and per-service images live in projects.json and services.json; leadership portraits live in leadership.json.",
   "slots": {
     "underlay": {
       "prefer": [
-        "m1",
-        "mk1",
-        "merkel1"
+        "hero"
       ],
-      "fallback": "/assets/slides/blueprint-01.webp"
+      "fallback": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155922_dd1fc8b3-b9d9-4c2e-a9c9-039884fbf5cf_min.webp"
     },
     "capabilities": {
       "prefer": [
-        "m2",
-        "mk2",
-        "merkel2"
+        "capabilities"
       ],
-      "fallback": "/assets/slides/blueprint-02.webp"
+      "fallback": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155923_a5718f3d-8015-4d89-b64e-bcb5a11c47f3_min.webp"
     },
     "metrics": {
       "prefer": [
-        "m3",
-        "mk3",
-        "merkel3"
+        "track-record"
       ],
-      "fallback": "/assets/slides/blueprint-03.webp"
+      "fallback": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155923_e3db7d6d-63fd-4daa-afa6-3159e715d703_min.webp"
     },
     "work": {
       "prefer": [
-        "m4",
-        "mk4",
-        "merkel4"
+        "work"
       ],
-      "fallback": "/assets/img/proj-helix-tower.svg"
+      "fallback": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155922_1e13dbaf-7daa-447d-9a90-c1cd9c26dc31_min.webp"
     },
     "contact": {
       "prefer": [
-        "mk5",
-        "mk3",
-        "mk1"
+        "studio"
       ],
-      "fallback": "/assets/img/contact.svg"
+      "fallback": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160122_b6480646-d2ea-4332-bc8f-198268782a30_min.webp"
     },
     "projectsHeader": {
       "prefer": [
-        "inspection",
-        "m3",
-        "mk1",
-        "merkel4"
+        "projects-header",
+        "work"
       ],
-      "fallback": "/assets/img/proj-helix-tower.svg"
+      "fallback": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155923_94abdb2b-adfe-4200-978e-6eb81811f981_min.webp"
     },
     "careersHeader": {
       "prefer": [
-        "m1",
-        "addd",
-        "merkel3"
+        "careers-header",
+        "capabilities"
       ],
-      "fallback": "/assets/img/careers.svg"
+      "fallback": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155922_83c7e3dd-54fc-4be3-adcf-c33ea75369c4_min.webp"
     },
     "contactHeader": {
       "prefer": [
-        "m4",
-        "add2",
-        "merkel5"
+        "contact-header",
+        "studio"
       ],
-      "fallback": "/assets/img/contact.svg"
+      "fallback": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155923_75389625-8ad2-4977-b987-b1234ef1b8d4_min.webp"
     }
   },
   "heroSlides": [
     {
       "prefer": [
-        "merkel2"
+        "hero"
       ],
-      "fallback": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/merkel2-X5a3OtwTvD1tkkyJ2iLPGsVU7Xgfqt.png"
+      "fallback": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155922_dd1fc8b3-b9d9-4c2e-a9c9-039884fbf5cf_min.webp"
     }
   ]
 }
