@@ -68,6 +68,10 @@ Object.entries(data.slots).forEach(([slot, spec]) => {
   images[slot] = resolve(spec);
 });
 images.heroSlides = data.heroSlides.map(resolve);
+// Projects the hero glimpses between returns to its resting image, and how
+// long each is held. Resolved against projects.json by the page builder.
+images.heroWorks = data.heroWorks || [];
+images.heroTiming = Object.assign({ restMs: 9000, workMs: 3500 }, data.heroTiming);
 
 /** What the build should report: which real images were picked up, if any. */
 images._resolved = found;

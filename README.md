@@ -46,7 +46,7 @@ all of it stops under `prefers-reduced-motion`.
 
 | # | Chapter | Carries |
 | - | ------- | ------- |
-| 1 | Hero | Full-bleed photograph, the two calls to action, and the at-a-glance readout |
+| 1 | Hero | Resting photograph with project glimpses, the two calls to action, and the at-a-glance readout |
 | 2 | Capabilities | The four disciplines, from `/api/services` |
 | 3 | Track record | Counters for the numbers the company is held to |
 | 4 | Leadership | The founder and the director of engineering, from `src/data/leadership.json` |
@@ -196,8 +196,11 @@ npm run test:browser                    # CHROME_PATH=... if it is not on the de
   theme" block at the end of that file has the final say on components.
   `--bg-rgb` is the one token every wash over a photograph reads from, so the
   whole site's brightness is a single edit.
-- The home hero runs a **photographic slideshow** (crossfade plus a slow Ken Burns
-  zoom) with clickable indicators; motion drops under `prefers-reduced-motion`.
+- The home hero **rests on its own photograph** and glimpses selected projects in
+  turn, crossfading back to the resting image between each one (about 9 seconds
+  at rest, 3.5 on each project, with a caption linking to the project on show).
+  Which projects and how long each is held are `heroWorks` and `heroTiming` in
+  `src/data/images.json`. Motion stops under `prefers-reduced-motion`.
 - Projects, careers and leadership content are rendered from the API, with embedded
   seed data as a fallback so pages never render empty.
 - The brand wordmark is an SVG with its lettering outlined, so it renders

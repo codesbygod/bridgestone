@@ -60,6 +60,11 @@ present.
 | `careers-header` | The `/careers` header | 1920 x 1080 |
 | `contact-header` | The `/contact` header | 1920 x 1080 |
 
+**Hero slideshow.** The hero rests on `hero` and briefly shows the projects listed
+in `heroWorks` (project ids from `src/data/projects.json`), returning to `hero`
+between each one. `heroTiming` sets the hold times: `restMs` for the resting image
+and `workMs` for each project. Both live in `src/data/images.json`.
+
 The mapping lives in `src/data/images.json`. Each slot names the file it prefers
 and the placeholder it falls back on (`/assets/img/placeholder.svg`), so the site
 never shows a broken image while you are still collecting artwork, and swapping

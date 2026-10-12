@@ -248,23 +248,63 @@
     });
   }
 
-  /* Hero slideshow ------------------------------------------------------- */
+  /* Hero slideshow ------------------------------------------------------- *
+   * The first slide is the resting image. The rest are projects, each shown
+   * briefly in turn, with a return to the resting image between every one:
+   * rest, work 1, rest, work 2, and so on. Motion stops under reduced motion
+   * and while the tab is hidden. */
   function setupSlides() {
     const wrap = $('#hero-slides');
     if (!wrap) return;
     const slides = $$('.slide', wrap);
-    const dots = $$('#hero-dots .dot');
     if (slides.length <= 1) return;
-    const DURATION = 5500;
-    let idx = 0, timer = null;
-    const go = (n) => {
-      idx = (n + slides.length) % slides.length;
-      slides.forEach((s, i) => s.classList.toggle('is-active', i === idx));
-      dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+    const caption = $('#hero-work');
+    const REST = Number(wrap.dataset.rest) || 9000;
+    const WORK = Number(wrap.dataset.work) || 3500;
+    let current = 0, nextWork = 1, timer = null;
+
+    // Project images load once the page has, so they never hold up the hero.
+    const loadWorks = () => slides.forEach((s) => {
+      if (!s.dataset.bg) return;
+      s.style.backgroundImage = "url('" + s.dataset.bg + "')";
+      delete s.dataset.bg;
+    });
+
+    const show = (i) => {
+      current = i;
+      slides.forEach((s, n) => s.classList.toggle('is-active', n === i));
+      if (!caption) return;
+      const s = slides[i];
+      const on = Boolean(s.dataset.work);
+      if (on) {
+        $('[data-work-name]', caption).textContent = s.dataset.work;
+        $('[data-work-place]', caption).textContent = s.dataset.place || '';
+        caption.href = s.dataset.href || '/projects';
+      }
+      caption.classList.toggle('is-visible', on);
+      caption.setAttribute('aria-hidden', String(!on));
+      caption.tabIndex = on ? 0 : -1;
     };
-    const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
-    const start = () => { stop(); if (!reduceMotion) timer = setInterval(() => go(idx + 1), DURATION); };
-    dots.forEach((d) => d.addEventListener('click', () => { go(Number(d.dataset.slide)); start(); }));
+
+    const tick = () => {
+      if (current === 0) {
+        show(nextWork);
+        nextWork = (nextWork % (slides.length - 1)) + 1;
+        timer = setTimeout(tick, WORK);
+      } else {
+        show(0);
+        timer = setTimeout(tick, REST);
+      }
+    };
+    const stop = () => { clearTimeout(timer); timer = null; };
+    const start = () => {
+      stop();
+      timer = setTimeout(tick, current === 0 ? REST : WORK);
+    };
+
+    if (reduceMotion) return;
+    if (document.readyState === 'complete') loadWorks();
+    else window.addEventListener('load', loadWorks, { once: true });
     document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
     start();
   }

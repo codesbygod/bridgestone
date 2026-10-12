@@ -1,6 +1,7 @@
 'use strict';
 
 const leadership = require('../data/leadership.json');
+const projects = require('../data/projects.json');
 const images = require('./images');
 const site = require('../data/site.json');
 const { contactForm } = require('./layout');
@@ -34,10 +35,25 @@ function chapter({ id, label, image, tone = '', inner }) {
 
 /* ---------- Landing ---------- */
 
+/**
+ * The hero rests on its own photograph and glimpses selected projects in
+ * turn, returning to the resting image between each one. Project slides carry
+ * their image in data-bg so they load after the page rather than competing
+ * with the first paint.
+ */
+const heroWorks = images.heroWorks
+  .map((id) => projects.find((p) => p.id === id))
+  .filter(Boolean);
+
+const heroSlides = [
+  `<div class="slide is-active" style="background-image:url('${images.heroSlides[0]}')"></div>`,
+  ...heroWorks.map((p) => `<div class="slide" data-bg="${p.image}" data-work="${p.name}" data-place="${p.location}" data-href="/projects/${p.id}"></div>`),
+].join('\n      ');
+
 const heroSection = `
   <section class="hero chapter" id="top" data-chapter="Home">
-    <div class="hero-slides" id="hero-slides" aria-hidden="true">
-      ${images.heroSlides.map((src, i) => `<div class="slide${i === 0 ? ' is-active' : ''}" style="background-image:url('${src}')"></div>`).join('\n      ')}
+    <div class="hero-slides" id="hero-slides" aria-hidden="true" data-rest="${images.heroTiming.restMs}" data-work="${images.heroTiming.workMs}">
+      ${heroSlides}
     </div>
     <div class="hero-scrim" aria-hidden="true"></div>
     <div class="hero-inner wrap">
@@ -49,11 +65,14 @@ const heroSection = `
           <a href="/projects" class="btn">View projects <span class="arw">&rsaquo;</span></a>
           <a href="#contact" class="btn ghost">Start a project <span class="arw">&rsaquo;</span></a>
         </div>
-        <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Background slides">
-          ${images.heroSlides.map((src, i) => `<button class="dot${i === 0 ? ' is-active' : ''}" data-slide="${i}" aria-label="Slide ${i + 1}"></button>`).join('\n          ')}
-        </div>
       </div>
     </div>
+    <a class="hero-work" id="hero-work" href="/projects" aria-hidden="true" tabindex="-1">
+      <span class="hero-work-k">Our work</span>
+      <span class="hero-work-name" data-work-name></span>
+      <span class="hero-work-place" data-work-place></span>
+      <span class="arw">&rsaquo;</span>
+    </a>
     <div class="hero-readout" aria-label="Bridgestone at a glance">
       <div class="cell"><span class="k">Established</span><span class="v">2009</span></div>
       <div class="cell"><span class="k">Delivery</span><span class="v">Design &amp; build</span></div>
