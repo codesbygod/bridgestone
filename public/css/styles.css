@@ -2100,3 +2100,14 @@ h1, h2, h3 { font-weight: 700; letter-spacing: -0.025em; }
   .hero .hero-actions .btn { flex: 1 1 auto; justify-content: center; padding: 13px 18px; }
   .hero-work { left: 20px; right: 20px; bottom: auto; top: 84px; justify-content: flex-start; flex-wrap: wrap; row-gap: 2px; }
 }
+
+/* The site inspection photograph is a portrait: frame it from the hard hat
+   down rather than from the middle, which loses the head. */
+.page-projects .page-header-media { background-position: 50% 30% !important; }
+
+/* On a phone the header photograph sits in the flow under the title. It was
+   still absolutely positioned from the desktop layout, which parked it behind
+   the title block where nobody could see it. */
+@media (max-width: 720px) {
+  .page-header-media { position: relative !important; inset: auto !important; }
+}

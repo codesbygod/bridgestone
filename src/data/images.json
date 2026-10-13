@@ -33,6 +33,7 @@
     },
     "projectsHeader": {
       "prefer": [
+        "site-inspection",
         "projects-header",
         "work"
       ],

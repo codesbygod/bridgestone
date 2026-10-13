@@ -1,18 +1,18 @@
 [
   {
-    "id": "daniel-reeves",
-    "name": "Daniel Reeves",
-    "role": "Founder & Managing Director",
-    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160651_f9c52b55-f52a-4377-a862-33333b657f69_min.webp",
-    "quote": "Every structure we hand over carries our name. That is reason enough to get the foundations right.",
-    "bio": "Daniel founded Bridgestone Constructions after fifteen years delivering bridges and major civil works, and is a chartered structural engineer. He has led the company through more than three hundred projects, from footbridges to estuary crossings, and still walks every major site before it is handed over."
+    "id": "andreas-kowalski",
+    "name": "Andreas Kowalski",
+    "role": "Founder & Chief Engineer",
+    "image": "/assets/img/leader-andreas-kowalski.webp",
+    "quote": "A drawing is a promise. The site is where you prove you can keep it.",
+    "bio": "Andreas Kowalski founded Bridgestone Constructions and leads its engineering as Chief Engineer, taking every scheme from first concept through to the site work that proves it. Andreas spends part of every week on site and sets the inspection regime that every Bridgestone project is signed off against."
   },
   {
     "id": "claire-morgan",
     "name": "Claire Morgan",
-    "role": "Director of Engineering",
+    "role": "Director of Operations",
     "image": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160651_0b26e87c-c650-40f0-a6cb-74046f7d9f67_min.webp",
-    "quote": "A drawing is a promise. The site is where you prove you can keep it.",
-    "bio": "Claire leads the engineering team, taking a scheme from first concept through to the site work that proves it. She spends part of every week on site, and sets the inspection regime that every Bridgestone project is signed off against."
+    "quote": "Every structure we hand over carries our name. That is reason enough to get the foundations right.",
+    "bio": "Claire runs delivery across every Bridgestone site, from programme and procurement to the day the keys are handed over. She keeps the people, plant and paperwork moving in step, so the engineering decided in the office is the engineering that gets built."
   }
 ]
