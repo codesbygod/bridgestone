@@ -1,6 +1,5 @@
 [
   { "id": "andreas", "name": "Andreas Kowalski", "role": "Founder & Chief Engineer", "discipline": "Structural", "initials": "AK" },
-  { "id": "claire", "name": "Claire Morgan", "role": "Director of Operations", "discipline": "Delivery", "initials": "CM" },
   { "id": "samuel", "name": "Samuel Hart", "role": "Head of Digital Delivery", "discipline": "BIM / VDC", "initials": "SH" },
   { "id": "nina", "name": "Nina Castell", "role": "Principal, Mechanical", "discipline": "Systems", "initials": "NC" }
 ]

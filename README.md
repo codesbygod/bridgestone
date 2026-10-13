@@ -49,7 +49,7 @@ all of it stops under `prefers-reduced-motion`.
 | 1 | Hero | Resting photograph with project glimpses, the two calls to action, and the at-a-glance readout |
 | 2 | Capabilities | The four disciplines, from `/api/services` |
 | 3 | Track record | Counters for the numbers the company is held to |
-| 4 | Leadership | The founder and chief engineer, and the director of operations, from `src/data/leadership.json` |
+| 4 | Leadership | The founder and chief engineer, from `src/data/leadership.json` |
 | 5 | Selected work | Three featured projects, from `/api/projects` |
 | 6 | Contact | The enquiry form itself, not a link to one |
 
