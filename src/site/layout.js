@@ -19,7 +19,7 @@ const absolute = (href) => (/^https?:\/\//.test(href) ? href : SITE_URL + href);
 
 /** The public path of a built page, or null for pages that should not be canonicalised. */
 function canonicalPath(file) {
-  if (!file || ['404.html', 'admin.html', 'project.html', 'service.html'].includes(file)) return null;
+  if (!file || ['404.html', 'admin.html', 'service.html'].includes(file)) return null;
   return file === 'index.html' ? '/' : '/' + file.replace(/\.html$/, '');
 }
 
@@ -70,7 +70,7 @@ function contactForm(id = 'contact-form') {
       </form>`;
 }
 
-function head({ title, description, file, noindex = false, styles = [] }) {
+function head({ title, description, file, image, noindex = false, styles = [] }) {
   const canonical = canonicalPath(file);
   const social = noindex ? '' : `
   <meta property="og:site_name" content="${SITE_NAME}" />
@@ -79,7 +79,7 @@ function head({ title, description, file, noindex = false, styles = [] }) {
   <meta property="og:description" content="${description}" />${canonical ? `
   <meta property="og:url" content="${SITE_URL}${canonical}" />
   <link rel="canonical" href="${SITE_URL}${canonical}" />` : ''}
-  <meta property="og:image" content="${absolute(images.heroSlides[0])}" />
+  <meta property="og:image" content="${absolute(image || images.heroSlides[0])}" />
   <meta name="twitter:card" content="summary_large_image" />`;
   return `<!doctype html>
 <html lang="en">

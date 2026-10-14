@@ -53,6 +53,9 @@ const publicDir = path.join(__dirname, '..', 'public');
 app.use(
   express.static(publicDir, {
     extensions: ['html'],
+    // /projects is both a page (projects.html) and a folder of project pages.
+    // Without this, the folder wins and /projects redirects to /projects/.
+    redirect: false,
     setHeaders(res, filePath) {
       // Long cache for static media (hero slides, logos); versioned per deploy.
       if (/\.(webp|png|jpg|jpeg|svg|mp4|woff2?)$/i.test(filePath)) {
@@ -67,8 +70,8 @@ const sendPage = (file) => (req, res) => res.sendFile(path.join(publicDir, file)
 
 app.get('/', sendPage('index.html'));
 app.get('/projects', sendPage('projects.html'));
-// Project detail pages resolve the id client-side from the path.
-app.get('/projects/:id', sendPage('project.html'));
+// Project detail pages are built one per project (public/projects/<id>.html)
+// and served by express.static above; an unknown id falls through to the 404.
 app.get('/services', sendPage('services.html'));
 // Service detail pages resolve the id client-side from the path.
 app.get('/services/:id', sendPage('service.html'));

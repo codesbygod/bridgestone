@@ -2,6 +2,7 @@
 
 const leadership = require('../data/leadership.json');
 const projects = require('../data/projects.json');
+const services = require('../data/services.json');
 const images = require('./images');
 const site = require('../data/site.json');
 const { contactForm } = require('./layout');
@@ -190,11 +191,125 @@ const projectsContent = `
     </div>
   </section>`;
 
-/* ---------- Project detail (hydrated by id) ---------- */
-const projectContent = `
-  <article id="project-detail" class="project-detail" data-loading="true">
-    <div class="wrap project-loading">Loading project&hellip;</div>
+/* ---------- Project detail: one static page per project ---------- */
+
+const escHtml = (value) => String(value == null ? '' : value).replace(/[&<>"']/g, (c) => (
+  { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+));
+
+/** Service title to its /services/:id page, so a project links to what was done on it. */
+const serviceIdByTitle = Object.fromEntries(services.map((sv) => [sv.title, sv.id]));
+
+/**
+ * A full case study, rendered at build time so every project has its own
+ * page, its own title and description, and reads with or without JavaScript.
+ * Every section is optional: a project with only the card fields still
+ * renders a complete, if shorter, page.
+ */
+function projectPage(project, next) {
+  const e = escHtml;
+  const focus = project.imageFocus ? ` style="object-position:${e(project.imageFocus)}"` : '';
+  const stats = [{ value: project.metric, label: project.metricLabel }, ...(project.highlights || [])]
+    .filter((h) => h && h.value)
+    .map((h) => `<div class="stat"><div class="num">${e(h.value)}</div><div class="lbl">${e(h.label)}</div></div>`)
+    .join('');
+  const facts = [
+    ['Client', project.client],
+    ['Location', project.location],
+    ['Sector', project.sector],
+    ['Status', project.status],
+    ['Programme', project.duration],
+    ['Year', project.year],
+  ].filter(([, v]) => v)
+    .map(([k, v]) => `<div class="fact"><span class="k">${k}</span><span class="v">${e(v)}</span></div>`)
+    .join('');
+  const serviceLinks = (project.services || [])
+    .map((title) => {
+      const id = serviceIdByTitle[title];
+      return id ? `<a href="/services/${e(id)}">${e(title)}</a>` : `<span>${e(title)}</span>`;
+    })
+    .join('');
+  const section = (heading, body) => (body ? `
+          <section class="case-section" data-reveal>
+            <h2>${heading}</h2>
+            ${body}
+          </section>` : '');
+  const scope = (project.scope || []).length
+    ? `<h3>What we delivered</h3><ul class="scope-list">${project.scope.map((item) => `<li>${e(item)}</li>`).join('')}</ul>`
+    : '';
+  const timeline = (project.timeline || []).length ? `
+          <div class="case-aside-block">
+            <h3>Programme</h3>
+            <ol class="timeline">${project.timeline.map((t) => `<li><span class="period">${e(t.period)}</span><span class="phase">${e(t.phase)}</span></li>`).join('')}</ol>
+          </div>` : '';
+
+  return `
+  <article class="project-detail">
+    <header class="page-header project-hero">
+      <div class="wrap page-header-grid">
+        <div class="page-header-copy">
+          <a class="crumb" href="/projects">&lsaquo; All projects</a>
+          <span class="eyebrow">${e(project.sector)} project</span>
+          <h1>${e(project.name)}</h1>
+          <p>${e(project.blurb)}</p>
+          <div class="meta-row">
+            <span class="sector">${e(project.location)}</span>
+            <span>${e(project.status || project.year)}</span>
+            ${project.duration ? `<span>${e(project.duration)}</span>` : ''}
+          </div>
+        </div>
+        <figure class="figure page-header-figure">
+          <img src="${e(project.image)}" alt="${e(project.name)}" decoding="async"${focus} />
+        </figure>
+      </div>
+    </header>
+
+    <section class="case-stats">
+      <div class="wrap"><div class="stats-strip">${stats}</div></div>
+    </section>
+
+    <section class="project-body">
+      <div class="wrap project-cols">
+        <div class="case-story">
+          ${section('Overview', `<p class="lede">${e(project.overview || project.blurb)}</p>`)}
+          ${section('The challenge', project.challenge && `<p>${e(project.challenge)}</p>`)}
+          ${section('Our approach', project.approach && `<p>${e(project.approach)}</p>${scope}`)}
+          ${section('The outcome', project.outcome && `<p>${e(project.outcome)}</p>`)}
+        </div>
+        <aside class="case-aside">
+          <div class="case-aside-block">
+            <h3>Key facts</h3>
+            <div class="project-facts">${facts}</div>
+          </div>
+          ${serviceLinks ? `
+          <div class="case-aside-block">
+            <h3>Services on this project</h3>
+            <div class="project-services">${serviceLinks}</div>
+          </div>` : ''}
+          ${timeline}
+        </aside>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap cta-inner"><h2>Have a project like this?</h2><p>Tell us what you are building and where it gets difficult. A senior engineer replies within two working days.</p><a href="/contact" class="btn">Start a project <span class="arw">&rsaquo;</span></a></div>
+    </section>
+    <nav class="project-next" aria-label="Next project"><div class="wrap"><a href="/projects/${e(next.id)}">
+      <span><span class="lbl">Next project</span><br><span class="nm">${e(next.name)}</span></span>
+      <span class="arw">&rsaquo;</span>
+    </a></div></nav>
   </article>`;
+}
+
+const projectPages = projects.map((project, i) => ({
+  file: `projects/${project.id}.html`,
+  active: 'projects',
+  bodyClass: 'page-project',
+  title: `${project.name} | Bridgestone Constructions`,
+  description: project.blurb,
+  image: project.image,
+  content: projectPage(project, projects[(i + 1) % projects.length]),
+}));
 
 /* ---------- Services listing ---------- */
 const servicesContent = `
@@ -406,7 +521,6 @@ const notFoundContent = `
 module.exports = [
   { file: 'index.html', active: '', bodyClass: 'page-home', title: 'Bridgestone Constructions', description: 'Bridgestone Constructions designs and builds bridges, buildings and infrastructure, with structural, civil, mechanical and digital engineering under one roof.', content: indexContent },
   { file: 'projects.html', active: 'projects', bodyClass: 'page-projects', title: 'Projects | Bridgestone Constructions', description: 'Selected Bridgestone Constructions projects: bridges, towers, industrial plant and transit.', content: projectsContent, extraScripts: ['/js/projects.js'] },
-  { file: 'project.html', active: 'projects', bodyClass: 'page-project', title: 'Project | Bridgestone Constructions', description: 'Project detail.', content: projectContent, extraScripts: ['/js/project.js'] },
   { file: 'services.html', active: 'services', bodyClass: 'page-services', title: 'Services | Bridgestone Constructions', description: 'Structural, civil, mechanical, digital, steel, groundworks, plant construction and commissioning.', content: servicesContent, extraScripts: ['/js/services.js'] },
   { file: 'service.html', active: 'services', bodyClass: 'page-service', title: 'Service | Bridgestone Constructions', description: 'Service detail.', content: serviceContent, extraScripts: ['/js/service.js'] },
   { file: 'apply.html', active: 'careers', bodyClass: 'page-apply', title: 'Apply | Bridgestone Constructions', description: 'Apply to Bridgestone Constructions. One form, read by the people you would work with.', content: applyContent, extraScripts: ['/js/apply.js'] },
@@ -417,4 +531,5 @@ module.exports = [
     title: 'Studio desk | Bridgestone Constructions', description: 'Staff dashboard.',
     content: adminContent, extraScripts: ['/js/supabase-lite.js', '/js/admin.js'] },
   { file: '404.html', active: '', bodyClass: 'page-404', title: 'Page not found | Bridgestone Constructions', description: 'Page not found.', content: notFoundContent },
+  ...projectPages,
 ];

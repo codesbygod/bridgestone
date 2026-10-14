@@ -16,7 +16,53 @@
       "Digital Engineering"
     ],
     "blurb": "An exterior diagrid that delivered column-free floors on a fifth less steel than a conventional frame.",
-    "overview": "Harbourline is a 40 storey office tower on a reclaimed waterfront plot. The client wanted open floor plates and a slim silhouette, so we moved the lateral system to the perimeter as a steel diagrid and kept the core to lifts and stairs. Every node was modelled parametrically, and the frame was checked under full wind tunnel loading before a single connection was drawn."
+    "overview": "Harbourline is a 40 storey office tower on a reclaimed waterfront plot. The client wanted open floor plates and a slim silhouette, so we moved the lateral system to the perimeter as a steel diagrid and kept the core to lifts and stairs. Every node was modelled parametrically, and the frame was checked under full wind tunnel loading before a single connection was drawn.",
+    "highlights": [
+      {
+        "value": "40",
+        "label": "storeys"
+      },
+      {
+        "value": "21%",
+        "label": "less steel than a braced core"
+      },
+      {
+        "value": "0",
+        "label": "internal columns per floor"
+      }
+    ],
+    "challenge": "The plot is reclaimed land on an exposed waterfront, and the client wanted open, column-free floors inside a slim silhouette. A conventional concrete core and moment frame would have eaten into the lettable area and made the tower too heavy for the ground beneath it.",
+    "approach": "We moved the lateral system to the perimeter as a steel diagrid, so the facade carries both gravity and wind load and the core is left to lifts, stairs and risers. The tower was tested in a boundary-layer wind tunnel at concept stage, and all 1,100 diagrid nodes were generated parametrically from the same model the fabricator used to cut steel.",
+    "scope": [
+      "Concept and scheme design of the diagrid frame",
+      "Wind tunnel testing and occupant comfort analysis",
+      "Parametric node design and fabrication models",
+      "Piled raft foundation on reclaimed ground",
+      "Site supervision through erection and handover"
+    ],
+    "outcome": "The frame used about a fifth less steel than the braced-core alternative, every floor is free of internal columns, and the tower topped out three weeks ahead of programme. Sway at the top floor stays inside comfort limits in a one-in-ten-year storm.",
+    "timeline": [
+      {
+        "phase": "Concept and wind testing",
+        "period": "Months 1 to 6"
+      },
+      {
+        "phase": "Detailed design",
+        "period": "Months 5 to 14"
+      },
+      {
+        "phase": "Foundations and core",
+        "period": "Months 12 to 22"
+      },
+      {
+        "phase": "Steel erection and facade",
+        "period": "Months 20 to 34"
+      },
+      {
+        "phase": "Commissioning and handover",
+        "period": "Months 34 to 36"
+      }
+    ]
   },
   {
     "id": "estuary-crossing",
@@ -35,7 +81,53 @@
       "Civil and Infrastructure"
     ],
     "blurb": "Twin concrete pylons carrying road and light rail across an exposed tidal estuary.",
-    "overview": "The crossing carries a dual carriageway and a light rail line over a tidal estuary with strong cross winds and an aggressive marine climate. The deck section was refined in the wind tunnel, the pylons were slipformed through two winters, and every stay anchorage was detailed so it can be inspected and replaced without closing the bridge."
+    "overview": "The crossing carries a dual carriageway and a light rail line over a tidal estuary with strong cross winds and an aggressive marine climate. The deck section was refined in the wind tunnel, the pylons were slipformed through two winters, and every stay anchorage was detailed so it can be inspected and replaced without closing the bridge.",
+    "highlights": [
+      {
+        "value": "2",
+        "label": "concrete pylons"
+      },
+      {
+        "value": "1.1 km",
+        "label": "total crossing length"
+      },
+      {
+        "value": "120 yr",
+        "label": "design life"
+      }
+    ],
+    "challenge": "A tidal estuary with strong cross winds, a navigation channel that had to stay open to shipping, and a marine climate that attacks steel and concrete alike. The bridge also carries light rail, which puts tight limits on how far the deck may move.",
+    "approach": "The deck section was refined in the wind tunnel until it stayed stable in the worst gusts on record. The pylons were slipformed in continuous pours through two winters, and the deck was built by balanced cantilever out from each pylon, so the channel never closed. Every stay anchorage can be inspected and replaced with the bridge in service.",
+    "scope": [
+      "Bridge form finding and wind tunnel studies",
+      "Marine piled foundations and pile caps",
+      "Pylon and deck design, including construction stages",
+      "Stay cable specification and anchorage detailing",
+      "Load testing and opening certification"
+    ],
+    "outcome": "The crossing opened on schedule, carrying a dual carriageway and twin light rail tracks, and cut the journey round the estuary by 25 minutes. Shipping was never stopped during construction.",
+    "timeline": [
+      {
+        "phase": "Ground investigation and design",
+        "period": "Months 1 to 12"
+      },
+      {
+        "phase": "Marine foundations",
+        "period": "Months 10 to 22"
+      },
+      {
+        "phase": "Pylon slipforming",
+        "period": "Months 20 to 34"
+      },
+      {
+        "phase": "Deck cantilevers and stays",
+        "period": "Months 30 to 46"
+      },
+      {
+        "phase": "Load testing and opening",
+        "period": "Months 46 to 50"
+      }
+    ]
   },
   {
     "id": "ridgeway-plant",
@@ -45,7 +137,8 @@
     "year": 2024,
     "metric": "35%",
     "metricLabel": "energy reduction",
-    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160124_4b4058ec-ab9e-4972-99fa-a97acfb36199_min.webp",
+    "image": "/assets/img/plant-team-review.webp",
+    "imageFocus": "50% 30%",
     "client": "Process operator",
     "status": "Completed 2024",
     "duration": "18 months",
@@ -54,7 +147,53 @@
       "Digital Engineering"
     ],
     "blurb": "A heat recovery rebuild of a continuous process line, installed without a day of lost production.",
-    "overview": "Ridgeway needed to cut the energy draw of an ageing continuous line without stopping it. We metered the plant for a full season, calibrated a model against what we measured, and phased the heat recovery installation across four planned maintenance windows so the line never went down."
+    "overview": "Ridgeway needed to cut the energy draw of an ageing continuous line without stopping it. We metered the plant for a full season, calibrated a model against what we measured, and phased the heat recovery installation across four planned maintenance windows so the line never went down.",
+    "highlights": [
+      {
+        "value": "0",
+        "label": "days of lost production"
+      },
+      {
+        "value": "4",
+        "label": "planned maintenance windows"
+      },
+      {
+        "value": "3 yr",
+        "label": "energy payback"
+      }
+    ],
+    "challenge": "Ridgeway's continuous process line was drawing far more energy than its design figures, and the plant could not be stopped to find out why. Any upgrade had to be installed around a production schedule that runs every day of the year.",
+    "approach": "We metered the line for a full season and built a model calibrated against what we measured, which showed where heat was being thrown away. The heat recovery package was designed around the plant's four planned maintenance windows, with every tie-in prefabricated and rehearsed on the model before the line was opened.",
+    "scope": [
+      "Energy audit and a season of metering",
+      "Calibrated process and thermal model",
+      "Heat recovery and piping design",
+      "Shutdown planning and tie-in rehearsal",
+      "Performance testing against the baseline"
+    ],
+    "outcome": "Energy use on the line fell by 35 percent against the measured baseline, the installation finished inside its four windows, and production never stopped. The model now sits with the operator's team for planning future changes.",
+    "timeline": [
+      {
+        "phase": "Metering and baseline",
+        "period": "Months 1 to 6"
+      },
+      {
+        "phase": "Model and design",
+        "period": "Months 5 to 10"
+      },
+      {
+        "phase": "Prefabrication",
+        "period": "Months 9 to 13"
+      },
+      {
+        "phase": "Installation in four windows",
+        "period": "Months 12 to 17"
+      },
+      {
+        "phase": "Performance testing",
+        "period": "Months 17 to 18"
+      }
+    ]
   },
   {
     "id": "central-station-canopy",
@@ -73,7 +212,53 @@
       "Steel Fabrication and Erection"
     ],
     "blurb": "A 92 metre steel and glass canopy raised over platforms that stayed open throughout.",
-    "overview": "The new canopy shelters six platforms without a single intermediate column. Because the station never closed, the ribs were lifted in night possessions of four hours each, and the temporary stability of the half-built roof was checked at every stage of the sequence."
+    "overview": "The new canopy shelters six platforms without a single intermediate column. Because the station never closed, the ribs were lifted in night possessions of four hours each, and the temporary stability of the half-built roof was checked at every stage of the sequence.",
+    "highlights": [
+      {
+        "value": "6",
+        "label": "platforms sheltered"
+      },
+      {
+        "value": "0",
+        "label": "intermediate columns"
+      },
+      {
+        "value": "212",
+        "label": "night possessions"
+      }
+    ],
+    "challenge": "The station needed a new roof over six platforms without closing a single one of them. The old canopy had to come down and the new one go up over live tracks and passengers, in four-hour windows between the last train and the first.",
+    "approach": "We designed a 92 metre clear span of curved steel ribs, each sized to be lifted in one piece during a single night. The erection sequence was designed with the structure, so the half-built roof was stable at every stage, and each rib was trial-fitted in the fabrication yard before it went to site.",
+    "scope": [
+      "Roof structure and glazing support design",
+      "Erection sequence and temporary works",
+      "Steel fabrication drawings and trial assembly",
+      "Possession planning with the rail operator",
+      "Site supervision of every night lift"
+    ],
+    "outcome": "The canopy was completed in 212 night possessions with no overrun into the morning service. Passengers now wait under daylight rather than a 1960s roof, and not one train was cancelled for the works.",
+    "timeline": [
+      {
+        "phase": "Scheme design and rail approvals",
+        "period": "Months 1 to 10"
+      },
+      {
+        "phase": "Fabrication and trial assembly",
+        "period": "Months 8 to 18"
+      },
+      {
+        "phase": "Old canopy removal",
+        "period": "Months 16 to 22"
+      },
+      {
+        "phase": "Rib erection and glazing",
+        "period": "Months 20 to 38"
+      },
+      {
+        "phase": "Handover",
+        "period": "Months 38 to 40"
+      }
+    ]
   },
   {
     "id": "valley-viaduct",
@@ -92,26 +277,118 @@
       "Groundworks and Foundations"
     ],
     "blurb": "Precast segments launched span by span across a floodplain, keeping the farmland beneath in use.",
-    "overview": "The viaduct lifts a new rail alignment clear of a floodplain that the landowners still farm. Piers sit on bored piles founded below the alluvium, and the deck is assembled from precast segments by a launching gantry, so the footprint on the ground below is no wider than the piers themselves."
+    "overview": "The viaduct lifts a new rail alignment clear of a floodplain that the landowners still farm. Piers sit on bored piles founded below the alluvium, and the deck is assembled from precast segments by a launching gantry, so the footprint on the ground below is no wider than the piers themselves.",
+    "highlights": [
+      {
+        "value": "42",
+        "label": "spans"
+      },
+      {
+        "value": "38 m",
+        "label": "typical span"
+      },
+      {
+        "value": "1,180",
+        "label": "precast deck segments"
+      }
+    ],
+    "challenge": "A new rail alignment has to cross a wide floodplain that is still farmed and floods most winters. The landowners needed access to their fields throughout, and the crossing could not raise flood levels upstream.",
+    "approach": "The viaduct sits on slender piers founded on bored piles below the alluvium, spaced to leave the floodplain working. The deck is assembled from precast segments by a launching gantry that travels along the finished spans, so almost nothing happens at ground level once the piers are up.",
+    "scope": [
+      "Route and flood modelling with the rail owner",
+      "Bored pile and pier design",
+      "Precast segment design and casting yard set-up",
+      "Launching gantry method and temporary works",
+      "Track bed interface and handover"
+    ],
+    "outcome": "Piers and the first 28 spans are complete, with segments being launched at three spans a fortnight. The fields below are still in use, and flood modelling shows no rise in water levels upstream.",
+    "timeline": [
+      {
+        "phase": "Design and consents",
+        "period": "Months 1 to 12"
+      },
+      {
+        "phase": "Piling and piers",
+        "period": "Months 10 to 26"
+      },
+      {
+        "phase": "Segment casting",
+        "period": "Months 18 to 40"
+      },
+      {
+        "phase": "Span-by-span launching",
+        "period": "Months 24 to 42"
+      },
+      {
+        "phase": "Track bed and handover",
+        "period": "Months 42 to 44"
+      }
+    ]
   },
   {
-    "id": "deepwater-quay",
-    "name": "Deepwater Quay",
-    "sector": "Infrastructure",
-    "location": "Deep-water port",
+    "id": "harbour-silos",
+    "name": "Harbour Silos Restoration",
+    "sector": "Commercial",
+    "location": "Docklands",
     "year": 2025,
-    "metric": "640 m",
-    "metricLabel": "quay length",
-    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160331_bc6a8167-bdca-438d-b2f1-88d169b02d4a_min.webp",
-    "client": "Port authority",
+    "metric": "4,200 m²",
+    "metricLabel": "concrete repaired",
+    "image": "/assets/img/harbour-silos.webp",
+    "client": "Regeneration developer",
     "status": "On site",
-    "duration": "32 months",
+    "duration": "30 months",
     "services": [
-      "Civil and Infrastructure",
-      "Groundworks and Foundations"
+      "Structural Engineering",
+      "Civil and Infrastructure"
     ],
-    "blurb": "A piled quay deck for the largest container vessels, built beside berths that never stopped working.",
-    "overview": "The new quay adds a deep-water berth to a busy terminal. Tubular steel piles were driven from a jack-up platform, the deck was cast in long bays behind a moving cofferdam, and the sequence was planned around the vessel calls at the neighbouring berths so the port lost no traffic."
+    "blurb": "Two 1930s concrete grain silos on the dockside, repaired and strengthened for a new life as offices and public space.",
+    "overview": "The silos are the last of the dock's grain stores, and the regeneration plan keeps them as its landmark. We are repairing nearly ninety years of weathering to the concrete, strengthening the walls for new floors and openings, and stabilising the quay wall they stand on.",
+    "highlights": [
+      {
+        "value": "2",
+        "label": "heritage silos"
+      },
+      {
+        "value": "38 m",
+        "label": "silo height"
+      },
+      {
+        "value": "0",
+        "label": "silo walls demolished"
+      }
+    ],
+    "challenge": "Decades of salt air had corroded the reinforcement and spalled the concrete, and the quay wall beneath had settled. The silos also need new floors and window openings cut into walls that were never designed for them.",
+    "approach": "Every face was surveyed from mobile platforms and scaffold, with cover meters and half-cell testing mapping the corroded steel. Repairs use sprayed concrete and cathodic protection, so corrosion is stopped rather than covered over. New openings are framed with steel collars, and the quay wall is stabilised with anchors drilled through from the dock side.",
+    "scope": [
+      "Condition survey and corrosion mapping",
+      "Concrete repair and cathodic protection",
+      "Design of new floors and wall openings",
+      "Quay wall stabilisation",
+      "Heritage consent support"
+    ],
+    "outcome": "Repairs to the first silo are complete and the second is under way, with every original wall retained. The pair will anchor the new waterfront when the regeneration opens.",
+    "timeline": [
+      {
+        "phase": "Survey and testing",
+        "period": "Months 1 to 5"
+      },
+      {
+        "phase": "Design and heritage consent",
+        "period": "Months 4 to 10"
+      },
+      {
+        "phase": "Quay wall stabilisation",
+        "period": "Months 9 to 14"
+      },
+      {
+        "phase": "Silo repairs and strengthening",
+        "period": "Months 12 to 26"
+      },
+      {
+        "phase": "New openings and handover",
+        "period": "Months 24 to 30"
+      }
+    ]
   },
   {
     "id": "kingsgate-basement",
@@ -130,7 +407,53 @@
       "Structural Engineering"
     ],
     "blurb": "A four-level basement dug beside listed buildings, with movement held inside millimetres.",
-    "overview": "Kingsgate sits hard against two listed facades and a live utility corridor. A secant pile wall propped at three levels holds the ground, and the neighbouring buildings were monitored around the clock, with trigger levels agreed with their owners before the first bucket of spoil came out."
+    "overview": "Kingsgate sits hard against two listed facades and a live utility corridor. A secant pile wall propped at three levels holds the ground, and the neighbouring buildings were monitored around the clock, with trigger levels agreed with their owners before the first bucket of spoil came out.",
+    "highlights": [
+      {
+        "value": "4",
+        "label": "basement levels"
+      },
+      {
+        "value": "6 mm",
+        "label": "maximum movement next door"
+      },
+      {
+        "value": "24/7",
+        "label": "automated monitoring"
+      }
+    ],
+    "challenge": "Kingsgate sits hard against two listed facades and a live utility corridor. Digging four levels down meant holding back the ground within millimetres, while the buildings next door stayed open for business.",
+    "approach": "A secant pile wall propped at three levels holds the ground, designed with the movement limits agreed with the neighbours' engineers before work began. Automated survey prisms and tilt sensors reported around the clock, with trigger levels that paused excavation automatically if movement approached the limit.",
+    "scope": [
+      "Ground investigation and movement assessment",
+      "Secant pile wall and propping design",
+      "Monitoring scheme and trigger levels",
+      "Party wall agreements and neighbour liaison",
+      "Basement slab and waterproofing"
+    ],
+    "outcome": "The maximum movement recorded at the listed facades was 6 millimetres, well inside the agreed limit, and excavation was never paused by a trigger. The basement was handed over dry and on programme.",
+    "timeline": [
+      {
+        "phase": "Investigation and design",
+        "period": "Months 1 to 4"
+      },
+      {
+        "phase": "Piling",
+        "period": "Months 4 to 7"
+      },
+      {
+        "phase": "Excavation and propping",
+        "period": "Months 7 to 12"
+      },
+      {
+        "phase": "Basement slab and waterproofing",
+        "period": "Months 11 to 14"
+      },
+      {
+        "phase": "Handover",
+        "period": "Month 15"
+      }
+    ]
   },
   {
     "id": "northfield-energy",
@@ -140,7 +463,8 @@
     "year": 2023,
     "metric": "11 days",
     "metricLabel": "total shutdown",
-    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160330_65b6618b-b318-4e9b-834f-33e33f532e0e_min.webp",
+    "image": "/assets/img/power-plant-team.webp",
+    "imageFocus": "50% 55%",
     "client": "Energy operator",
     "status": "Completed 2023",
     "duration": "26 months",
@@ -149,7 +473,53 @@
       "Commissioning and Handover"
     ],
     "blurb": "A low-carbon expansion tied into live systems inside an eleven day shutdown.",
-    "overview": "The expansion needed 38 tie-ins to systems that could only be opened during the annual outage. Modules were built and tested off site, every cut was rehearsed in the model first, and the lift plan was sequenced so no two tie-ins ever waited on the same crane."
+    "overview": "The expansion needed 38 tie-ins to systems that could only be opened during the annual outage. Modules were built and tested off site, every cut was rehearsed in the model first, and the lift plan was sequenced so no two tie-ins ever waited on the same crane.",
+    "highlights": [
+      {
+        "value": "38",
+        "label": "live tie-ins"
+      },
+      {
+        "value": "14",
+        "label": "prefabricated modules"
+      },
+      {
+        "value": "0",
+        "label": "lost-time incidents"
+      }
+    ],
+    "challenge": "Northfield's expansion had to connect to systems that can only be opened during the annual outage, and that outage lasts eleven days. Anything not finished inside the window would have to wait another year.",
+    "approach": "We designed the expansion as fourteen modules, built and pressure tested off site while the plant kept running. Every one of the 38 tie-ins was rehearsed in the model and dry-run on site, and the lift plan was sequenced so that no two tie-ins ever waited for the same crane.",
+    "scope": [
+      "Expansion layout and module design",
+      "Off-site fabrication and pressure testing",
+      "Outage planning and tie-in rehearsal",
+      "Heavy lift and crane planning",
+      "Commissioning and operator training"
+    ],
+    "outcome": "All 38 tie-ins were completed inside the eleven-day outage, the new plant was commissioned on the first attempt, and the works finished with no lost-time incidents.",
+    "timeline": [
+      {
+        "phase": "Design and module layout",
+        "period": "Months 1 to 8"
+      },
+      {
+        "phase": "Off-site fabrication",
+        "period": "Months 7 to 18"
+      },
+      {
+        "phase": "Site preparation",
+        "period": "Months 14 to 22"
+      },
+      {
+        "phase": "Eleven-day outage",
+        "period": "Month 23"
+      },
+      {
+        "phase": "Commissioning and training",
+        "period": "Months 23 to 26"
+      }
+    ]
   },
   {
     "id": "meadowbank-logistics",
@@ -157,7 +527,7 @@
     "sector": "Industrial",
     "location": "Logistics corridor",
     "year": 2024,
-    "metric": "58,000 m2",
+    "metric": "58,000 m²",
     "metricLabel": "floor area",
     "image": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160453_a92a5252-1e82-4af6-9c13-d7ae68910d18_min.webp",
     "client": "Logistics developer",
@@ -168,7 +538,53 @@
       "Groundworks and Foundations"
     ],
     "blurb": "A long-span portal frame delivered from ground investigation to handover in fifteen months.",
-    "overview": "A distribution shed is a simple structure on an unforgiving programme. Connections were detailed to the fabricator's own shop standards, steel arrived on site in erection order, and the floor slab was poured in bays that followed the frame rather than waiting for it."
+    "overview": "A distribution shed is a simple structure on an unforgiving programme. Connections were detailed to the fabricator's own shop standards, steel arrived on site in erection order, and the floor slab was poured in bays that followed the frame rather than waiting for it.",
+    "highlights": [
+      {
+        "value": "36 m",
+        "label": "clear roof span"
+      },
+      {
+        "value": "2,400 t",
+        "label": "structural steel"
+      },
+      {
+        "value": "15",
+        "label": "months, investigation to handover"
+      }
+    ],
+    "challenge": "A logistics developer with a tenant already signed needed a 58,000 square metre distribution centre handed over in fifteen months, from a greenfield site nobody had yet investigated.",
+    "approach": "Ground investigation, foundation design and steel procurement ran in parallel rather than in sequence. Connections were detailed to the fabricator's own shop standards, steel arrived in erection order, and the floor slab was poured in bays that followed the frame rather than waiting for it.",
+    "scope": [
+      "Ground investigation and foundation design",
+      "Portal frame and roof structure",
+      "Steel procurement and erection planning",
+      "Floor slab design for high-bay racking",
+      "Coordination of the tenant fit-out"
+    ],
+    "outcome": "The building was handed over in fifteen months, on the date the tenant had planned their move around, with the slab inside the flatness tolerance their racking demanded.",
+    "timeline": [
+      {
+        "phase": "Ground investigation",
+        "period": "Months 1 to 2"
+      },
+      {
+        "phase": "Foundations",
+        "period": "Months 2 to 5"
+      },
+      {
+        "phase": "Steel frame and roof",
+        "period": "Months 4 to 10"
+      },
+      {
+        "phase": "Floor slab and envelope",
+        "period": "Months 8 to 13"
+      },
+      {
+        "phase": "Fit-out and handover",
+        "period": "Months 13 to 15"
+      }
+    ]
   },
   {
     "id": "albion-house-retrofit",
@@ -178,7 +594,7 @@
     "year": 2025,
     "metric": "+5",
     "metricLabel": "storeys added",
-    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160452_2080abfa-700c-4423-9494-4b504815b768_min.webp",
+    "image": "/assets/img/office-floor.webp",
     "client": "Property investor",
     "status": "On site",
     "duration": "22 months",
@@ -187,7 +603,53 @@
       "Digital Engineering"
     ],
     "blurb": "Five new storeys on a 1970s concrete frame, with the tenants staying in throughout.",
-    "overview": "Nobody had ever calculated the spare capacity in the original frame, so we started with a full survey and load test rather than an assumption. Strengthening was limited to nine columns and one transfer beam, which carries the new lightweight steel storeys without disturbing the occupied floors below."
+    "overview": "Nobody had ever calculated the spare capacity in the original frame, so we started with a full survey and load test rather than an assumption. Strengthening was limited to nine columns and one transfer beam, which carries the new lightweight steel storeys without disturbing the occupied floors below.",
+    "highlights": [
+      {
+        "value": "9",
+        "label": "columns strengthened"
+      },
+      {
+        "value": "0",
+        "label": "tenants relocated"
+      },
+      {
+        "value": "60%",
+        "label": "less embodied carbon than a rebuild"
+      }
+    ],
+    "challenge": "The owner wanted five more storeys on a 1970s concrete office building, and the tenants on the floors below were staying put. Nobody had ever calculated how much spare capacity the original frame had.",
+    "approach": "We started with a full survey, concrete cores and a load test instead of an assumption. That showed the frame could carry lightweight steel storeys with strengthening at just nine columns and one transfer beam. Work on the occupied floors was limited to weekends, and the new floor plates were set out and fitted out as open, column-free space.",
+    "scope": [
+      "Structural survey, coring and load testing",
+      "Strengthening design for columns and transfer beam",
+      "Lightweight steel extension",
+      "Phasing around occupied floors",
+      "Floor plate set-out and fit-out coordination"
+    ],
+    "outcome": "The extension is going up with every tenant still in the building. Reusing the frame saves around 60 percent of the embodied carbon of demolishing and rebuilding.",
+    "timeline": [
+      {
+        "phase": "Survey and load test",
+        "period": "Months 1 to 4"
+      },
+      {
+        "phase": "Design and approvals",
+        "period": "Months 3 to 8"
+      },
+      {
+        "phase": "Strengthening works",
+        "period": "Months 8 to 12"
+      },
+      {
+        "phase": "Steel extension",
+        "period": "Months 11 to 18"
+      },
+      {
+        "phase": "Fit-out and handover",
+        "period": "Months 18 to 22"
+      }
+    ]
   },
   {
     "id": "westbrook-lock",
@@ -206,7 +668,53 @@
       "Mechanical and Process"
     ],
     "blurb": "Replacement lock gates built and load tested on the quay, then set in a single closure.",
-    "overview": "The gates were too large to assemble inside the chamber, so they were fabricated and load tested on the quayside, then lifted in during one planned closure of the waterway. The drive machinery was commissioned dry before the chamber was flooded again."
+    "overview": "The gates were too large to assemble inside the chamber, so they were fabricated and load tested on the quayside, then lifted in during one planned closure of the waterway. The drive machinery was commissioned dry before the chamber was flooded again.",
+    "highlights": [
+      {
+        "value": "24 m",
+        "label": "gate leaf height"
+      },
+      {
+        "value": "1",
+        "label": "planned closure for installation"
+      },
+      {
+        "value": "100 yr",
+        "label": "design life"
+      }
+    ],
+    "challenge": "The original lock gates were at the end of their life, and the waterway could only be closed once, for a short planned period. The new gates were too large to assemble inside the chamber.",
+    "approach": "We fabricated the gates on the quayside, load tested them there, and lifted them in during a single planned closure. The drive machinery was installed and commissioned dry before the chamber was flooded again, so the lock reopened working.",
+    "scope": [
+      "Gate structure and seal design",
+      "Quayside fabrication and load testing",
+      "Heavy lift planning for installation",
+      "Drive machinery and controls",
+      "Dry commissioning and reopening"
+    ],
+    "outcome": "The lock reopened on the planned day, and the new gates are designed for a hundred years of service with seals that can be changed from the lock side.",
+    "timeline": [
+      {
+        "phase": "Design",
+        "period": "Months 1 to 10"
+      },
+      {
+        "phase": "Fabrication",
+        "period": "Months 9 to 24"
+      },
+      {
+        "phase": "Quayside load testing",
+        "period": "Months 24 to 28"
+      },
+      {
+        "phase": "Closure and installation",
+        "period": "Months 29 to 32"
+      },
+      {
+        "phase": "Commissioning and reopening",
+        "period": "Months 32 to 34"
+      }
+    ]
   },
   {
     "id": "parkside-campus",
@@ -226,6 +734,52 @@
       "Digital Engineering"
     ],
     "blurb": "Teaching buildings in timber and stone, sharing one low temperature heat network.",
-    "overview": "The campus runs on a ground source heat network that only performs if the buildings are commissioned as one system. Metering was specified at design stage, so performance could be proved against the model before handover rather than argued about afterwards."
+    "overview": "The campus runs on a ground source heat network that only performs if the buildings are commissioned as one system. Metering was specified at design stage, so performance could be proved against the model before handover rather than argued about afterwards.",
+    "highlights": [
+      {
+        "value": "4",
+        "label": "teaching buildings"
+      },
+      {
+        "value": "1",
+        "label": "shared ground source network"
+      },
+      {
+        "value": "70%",
+        "label": "lower heating carbon"
+      }
+    ],
+    "challenge": "The university wanted four new teaching buildings heated from a single low temperature ground source network. That only works if the buildings are designed and commissioned as one system, not four separate contracts.",
+    "approach": "Metering and controls were specified at design stage, so the network's performance could be proved against the model before handover rather than argued about afterwards. Each building is commissioned onto the network in turn, with the previous buildings' data used to tune the next.",
+    "scope": [
+      "Ground source network design",
+      "Building services for four teaching buildings",
+      "Metering and controls strategy",
+      "Phased commissioning",
+      "Performance verification against the model"
+    ],
+    "outcome": "The first two buildings are open and running on the network, using around 70 percent less carbon for heating than the gas-fired buildings they replaced.",
+    "timeline": [
+      {
+        "phase": "Network and building design",
+        "period": "Months 1 to 10"
+      },
+      {
+        "phase": "Boreholes and network",
+        "period": "Months 8 to 16"
+      },
+      {
+        "phase": "Buildings one and two",
+        "period": "Months 10 to 20"
+      },
+      {
+        "phase": "Buildings three and four",
+        "period": "Months 18 to 26"
+      },
+      {
+        "phase": "Seasonal commissioning",
+        "period": "Months 24 to 28"
+      }
+    ]
   }
 ]

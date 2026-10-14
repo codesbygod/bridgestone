@@ -51,13 +51,13 @@ present.
 
 | File | Where it appears | Suggested size |
 | ---- | ---------------- | -------------- |
-| `hero` | The landing page hero | 2400 x 1030 (21:9) |
-| `capabilities` | Capabilities chapter and the `/services` header | 1920 x 1080 |
+| `site-overlook` (else `hero`) | The landing page hero's resting image | 2400 x 1030 (21:9) |
+| `office-floor` (else `capabilities`) | Capabilities chapter and the `/services` header | 1920 x 1080 |
 | `track-record` | Track record chapter and the `/apply` header | 1920 x 1080 |
-| `work` | Selected work chapter | 1920 x 1080 |
+| `harbour-silos` (else `work`) | Selected work chapter | 1920 x 1080 |
 | `studio` | Contact chapter | 1920 x 1080 |
-| `projects-header` | The `/projects` header | 2400 x 1030 |
-| `careers-header` | The `/careers` header | 1920 x 1080 |
+| `site-inspection` (else `projects-header`) | The `/projects` header | 2400 x 1030 |
+| `power-plant-team` (else `careers-header`) | The `/careers` header | 1920 x 1080 |
 | `contact-header` | The `/contact` header | 1920 x 1080 |
 
 **Hero slideshow.** The hero rests on `hero` and briefly shows the projects listed
@@ -69,6 +69,13 @@ The mapping lives in `src/data/images.json`. Each slot names the file it prefers
 and the placeholder it falls back on (`/assets/img/placeholder.svg`), so the site
 never shows a broken image while you are still collecting artwork, and swapping
 any single slot is one line.
+
+**Project pages.** Every project in `src/data/projects.json` gets its own page at
+`/projects/<id>`, built by `npm run build` into `public/projects/`. Besides the card
+fields, a project can carry `highlights` (the key figures band), `challenge`,
+`approach`, `scope` (what we delivered), `outcome` and `timeline` (the programme);
+any it leaves out are simply not shown. `imageFocus` (for example `"50% 30%"`)
+sets which part of the photograph stays in frame when it is cropped.
 
 **Per-project images.** Edit the `image` field in `src/data/projects.json` (one per
 project; used for the card thumbnail and the detail-page figure). Suggested size
@@ -120,7 +127,7 @@ Notes:
 1. Go to <https://vercel.com> and sign in with GitHub.
 2. **Add New, then Project**, and import your fork.
 3. Leave the build settings alone. `vercel.json` already sets the build command,
-   the `public` output directory, clean URLs and the `/projects/:id` rewrite, and
+   the `public` output directory, clean URLs and the `/services/:id` rewrite, and
    declares `"framework": null`. That last one matters: `express` is a dependency,
    so without it Vercel auto-detects a Node server preset and then fails after a
    successful build with `No entrypoint found in output directory: "public"`.

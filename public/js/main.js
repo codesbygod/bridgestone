@@ -31,14 +31,14 @@
   const FALLBACK_PROJECTS = [
     { id: 'harbourline-tower', name: 'Harbourline Tower', sector: 'Commercial', location: 'City waterfront', year: 2025, metric: '168 m', metricLabel: 'structural height', image: 'https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160122_c4f1ac0a-34e7-4ef4-9be8-075ce230d734_min.webp', blurb: 'An exterior diagrid that delivered column-free floors on a fifth less steel than a conventional frame.' },
     { id: 'estuary-crossing', name: 'Estuary Crossing', sector: 'Infrastructure', location: 'Coastal estuary', year: 2024, metric: '420 m', metricLabel: 'cable-stayed span', image: 'https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155924_c247e1e3-73ee-402c-9f6f-e4fd7f441498_min.webp', blurb: 'Twin concrete pylons carrying road and light rail across an exposed tidal estuary.' },
-    { id: 'ridgeway-plant', name: 'Ridgeway Process Plant', sector: 'Industrial', location: 'Industrial park', year: 2024, metric: '35%', metricLabel: 'energy reduction', image: 'https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160124_4b4058ec-ab9e-4972-99fa-a97acfb36199_min.webp', blurb: 'A heat recovery rebuild of a continuous process line, installed without a day of lost production.' },
+    { id: 'ridgeway-plant', name: 'Ridgeway Process Plant', sector: 'Industrial', location: 'Industrial park', year: 2024, metric: '35%', metricLabel: 'energy reduction', image: '/assets/img/plant-team-review.webp', imageFocus: '50% 30%', blurb: 'A heat recovery rebuild of a continuous process line, installed without a day of lost production.' },
     { id: 'central-station-canopy', name: 'Central Station Canopy', sector: 'Transit', location: 'City centre', year: 2023, metric: '92 m', metricLabel: 'clear-span canopy', image: 'https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160122_4050d56a-3375-4fb8-bcf8-9b9e01402600_min.webp', blurb: 'A 92 metre steel and glass canopy raised over platforms that stayed open throughout.' }
   ];
 
   function projectCard(p) {
     return `
       <a class="card" href="/projects/${esc(p.id)}" data-reveal>
-        <div class="thumb"><img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" /></div>
+        <div class="thumb"><img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy"${p.imageFocus ? ` style="object-position:${esc(p.imageFocus)}"` : ''} /></div>
         <div class="card-body">
           <div class="meta"><span class="sector">${esc(p.sector)}</span><span>${esc(p.year)}</span></div>
           <h3>${esc(p.name)}</h3>

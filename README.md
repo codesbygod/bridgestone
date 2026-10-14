@@ -24,7 +24,7 @@ live-chat endpoint.
 | ---------------- | ------------------------------------------------------- |
 | `/`              | Landing: six full-height chapters, ending in the enquiry form |
 | `/projects`      | Filterable project listing with images                  |
-| `/projects/:id`  | Full project page with image, overview and key facts    |
+| `/projects/:id`  | One page per project, built from `projects.json`: key figures, challenge, approach, outcome, programme |
 | `/services`      | The eight disciplines, each linking to its own page      |
 | `/services/:id`  | One discipline: what it covers, what you get, where it shows |
 | `/careers`       | Open roles and studio culture                           |
@@ -96,7 +96,8 @@ Two halves of one conversation:
 ├── api/
 │   └── [...path].js          # Vercel serverless entry (whole API in one function)
 ├── scripts/
-│   └── build-pages.js        # assembles public/*.html from shared partials
+│   ├── build-pages.js        # assembles public/*.html and public/projects/*.html
+│   └── fetch-images.js       # copies hosted photography into public/assets/img
 ├── docs/
 │   └── DEPLOYMENT.md         # fork -> images -> Vercel -> database -> desk -> inbox
 ├── test/

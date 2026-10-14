@@ -35,7 +35,7 @@
     "title": "Mechanical and Process",
     "summary": "Piping, thermal systems and plant layouts tuned for throughput, redundancy and quiet operation.",
     "capabilities": ["Process piping and stress", "HVAC and ventilation", "Energy modelling", "Plant layout"],
-    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160124_4b4058ec-ab9e-4972-99fa-a97acfb36199_min.webp",
+    "image": "/assets/img/plant-team-review.webp",
     "lede": "Process plant lives or dies on layout. Pipe runs, access and maintenance decide the operating cost for the next thirty years.",
     "body": [
       "We design piping systems and their supports, run stress analysis on hot lines, and lay out plant so that the units needing weekly attention are the ones a fitter can reach.",
@@ -95,7 +95,7 @@
     "title": "Industrial Plant Construction",
     "summary": "Full delivery of process and energy plant, from foundations to the day it runs.",
     "capabilities": ["Multi discipline delivery", "Package procurement", "Site management", "Live plant tie-ins"],
-    "image": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160330_65b6618b-b318-4e9b-834f-33e33f532e0e_min.webp",
+    "image": "/assets/img/power-plant-team.webp",
     "lede": "Building next to a plant that is still running is a different job from building on an empty field.",
     "body": [
       "We take plant projects from foundations through structures, pipework and electrical to a working handover, holding the interfaces between packages so the client is not left arbitrating them.",

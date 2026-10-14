@@ -13,6 +13,12 @@ const images = require('../src/site/images');
 
 const publicDir = path.join(__dirname, '..', 'public');
 
+// Project pages are generated one per project, so clear the old set first:
+// a project removed from projects.json must not leave its page behind.
+const projectsDir = path.join(publicDir, 'projects');
+fs.rmSync(projectsDir, { recursive: true, force: true });
+fs.mkdirSync(projectsDir, { recursive: true });
+
 let count = 0;
 for (const def of pages) {
   const html = page(def);

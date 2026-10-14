@@ -1,21 +1,9 @@
 {
   "_comment": "Where the Bridgestone photography came from. Until the files are copied into public/assets/img/, the site loads each image's preview from this list. Run `npm run images:fetch` to download the full-resolution originals, save them as optimised WebP in public/assets/img/, and point src/data/*.json and public/js/main.js at the local copies.",
   "images": {
-    "hero": {
-      "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_164852_b5f5e39b-37a1-4afe-9179-2f5789717477_min.webp",
-      "original": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_164852_b5f5e39b-37a1-4afe-9179-2f5789717477.png"
-    },
-    "capabilities": {
-      "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_164852_cb83ca08-f609-4ae7-8c91-ff8dbc632dad_min.webp",
-      "original": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_164852_cb83ca08-f609-4ae7-8c91-ff8dbc632dad.png"
-    },
     "track-record": {
       "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155923_e3db7d6d-63fd-4daa-afa6-3159e715d703_min.webp",
       "original": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155923_e3db7d6d-63fd-4daa-afa6-3159e715d703.png"
-    },
-    "work": {
-      "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155922_1e13dbaf-7daa-447d-9a90-c1cd9c26dc31_min.webp",
-      "original": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155922_1e13dbaf-7daa-447d-9a90-c1cd9c26dc31.png"
     },
     "studio": {
       "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160122_b6480646-d2ea-4332-bc8f-198268782a30_min.webp",
@@ -24,10 +12,6 @@
     "projects-header": {
       "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155923_94abdb2b-adfe-4200-978e-6eb81811f981_min.webp",
       "original": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155923_94abdb2b-adfe-4200-978e-6eb81811f981.png"
-    },
-    "careers-header": {
-      "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_164852_cf2be9a2-09f5-40a6-9f0b-af708731cf04_min.webp",
-      "original": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_164852_cf2be9a2-09f5-40a6-9f0b-af708731cf04.png"
     },
     "contact-header": {
       "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155923_75389625-8ad2-4977-b987-b1234ef1b8d4_min.webp",
@@ -41,10 +25,6 @@
       "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155924_c247e1e3-73ee-402c-9f6f-e4fd7f441498_min.webp",
       "original": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_155924_c247e1e3-73ee-402c-9f6f-e4fd7f441498.png"
     },
-    "project-ridgeway-plant": {
-      "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160124_4b4058ec-ab9e-4972-99fa-a97acfb36199_min.webp",
-      "original": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160124_4b4058ec-ab9e-4972-99fa-a97acfb36199.png"
-    },
     "project-central-station-canopy": {
       "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160122_4050d56a-3375-4fb8-bcf8-9b9e01402600_min.webp",
       "original": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160122_4050d56a-3375-4fb8-bcf8-9b9e01402600.png"
@@ -53,25 +33,13 @@
       "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160331_ee860e4e-674b-4b17-a148-912e7ba27488_min.webp",
       "original": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160331_ee860e4e-674b-4b17-a148-912e7ba27488.png"
     },
-    "project-deepwater-quay": {
-      "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160331_bc6a8167-bdca-438d-b2f1-88d169b02d4a_min.webp",
-      "original": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160331_bc6a8167-bdca-438d-b2f1-88d169b02d4a.png"
-    },
     "project-kingsgate-basement": {
       "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160331_04601342-55ad-4470-8cfd-504576a85e55_min.webp",
       "original": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160331_04601342-55ad-4470-8cfd-504576a85e55.png"
     },
-    "project-northfield-energy": {
-      "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160330_65b6618b-b318-4e9b-834f-33e33f532e0e_min.webp",
-      "original": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160330_65b6618b-b318-4e9b-834f-33e33f532e0e.png"
-    },
     "project-meadowbank-logistics": {
       "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160453_a92a5252-1e82-4af6-9c13-d7ae68910d18_min.webp",
       "original": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160453_a92a5252-1e82-4af6-9c13-d7ae68910d18.png"
-    },
-    "project-albion-house-retrofit": {
-      "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160452_2080abfa-700c-4423-9494-4b504815b768_min.webp",
-      "original": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160452_2080abfa-700c-4423-9494-4b504815b768.png"
     },
     "project-westbrook-lock": {
       "preview": "https://d8j0ntlcm91z4.cloudfront.net/user_38vwwbzYqMZDQ6dyDUf6v9XHyPV/hf_20261012_160452_210753a6-3696-4b1d-b449-e466ce513caa_min.webp",
