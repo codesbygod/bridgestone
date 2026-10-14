@@ -56,9 +56,9 @@ present.
 | `track-record` | Track record chapter and the `/apply` header | 1920 x 1080 |
 | `harbour-silos` (else `work`) | Selected work chapter | 1920 x 1080 |
 | `studio` | Contact chapter | 1920 x 1080 |
-| `site-inspection` (else `projects-header`) | The `/projects` header | 2400 x 1030 |
-| `power-plant-team` (else `careers-header`) | The `/careers` header | 1920 x 1080 |
-| `contact-header` | The `/contact` header | 1920 x 1080 |
+| `power-plant-team` (else `projects-header`) | The `/projects` header | 2400 x 1030 |
+| `plant-team-review` (else `careers-header`) | The `/careers` header | 1920 x 1080 |
+| `site-inspection` (else `contact-header`) | The `/contact` header | 1920 x 1080 |
 
 **Hero slideshow.** The hero rests on `hero` and briefly shows the projects listed
 in `heroWorks` (project ids from `src/data/projects.json`), returning to `hero`

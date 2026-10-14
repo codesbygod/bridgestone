@@ -36,7 +36,7 @@
     },
     "projectsHeader": {
       "prefer": [
-        "site-inspection",
+        "power-plant-team",
         "projects-header",
         "work"
       ],
@@ -44,7 +44,7 @@
     },
     "careersHeader": {
       "prefer": [
-        "power-plant-team",
+        "plant-team-review",
         "careers-header",
         "capabilities"
       ],
@@ -52,6 +52,7 @@
     },
     "contactHeader": {
       "prefer": [
+        "site-inspection",
         "contact-header",
         "studio"
       ],

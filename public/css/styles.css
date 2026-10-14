@@ -2101,9 +2101,11 @@ h1, h2, h3 { font-weight: 700; letter-spacing: -0.025em; }
   .hero-work { left: 20px; right: 20px; bottom: auto; top: 84px; justify-content: flex-start; flex-wrap: wrap; row-gap: 2px; }
 }
 
-/* The site inspection photograph is a portrait: frame it from the hard hat
-   down rather than from the middle, which loses the head. */
-.page-projects .page-header-media { background-position: 50% 30% !important; }
+/* Header photographs that are not landscape: keep the people in frame.
+   The power plant team stands low in a square frame; the site inspection
+   portrait is framed from the hard hat down rather than from the middle. */
+.page-projects .page-header-media { background-position: 50% 58% !important; }
+.page-contact .page-header-media { background-position: 50% 30% !important; }
 
 /* On a phone the header photograph sits in the flow under the title. It was
    still absolutely positioned from the desktop layout, which parked it behind
@@ -2191,5 +2193,5 @@ h1, h2, h3 { font-weight: 700; letter-spacing: -0.025em; }
   .stats-strip .stat:first-child { padding-left: 16px; }
 }
 
-/* The careers header photograph is square: keep the faces, lose the sky. */
-.page-careers .page-header-media { background-position: 50% 58% !important; }
+/* The careers header photograph is square with the team high in the frame. */
+.page-careers .page-header-media { background-position: 50% 30% !important; }
