@@ -7,7 +7,20 @@
   if (!grid) return;
   let all = [];
 
-  const render = (list) => { grid.innerHTML = list.map(M.projectCard).join(''); M.observeReveals(); };
+  const draw = (list) => { grid.innerHTML = list.map(M.projectCard).join(''); M.observeReveals(); };
+
+  /* Changing the filter shuffles the deck: the cards on show fly out turned,
+     and the new set is dealt back in. */
+  let shuffleTimer = null;
+  const render = (list, shuffle) => {
+    if (!shuffle || M.reduceMotion) return draw(list);
+    clearTimeout(shuffleTimer);
+    grid.classList.add('is-shuffling');
+    shuffleTimer = setTimeout(() => {
+      grid.classList.remove('is-shuffling');
+      draw(list);
+    }, 260);
+  };
 
   function buildFilters(projects) {
     const sectors = ['All', ...Array.from(new Set(projects.map((p) => p.sector)))];
@@ -17,7 +30,7 @@
       M.$$('.chip', bar).forEach((c) => c.classList.remove('active'));
       btn.classList.add('active');
       const s = btn.dataset.sector;
-      render(s === 'All' ? all : all.filter((p) => p.sector === s));
+      render(s === 'All' ? all : all.filter((p) => p.sector === s), true);
     });
   }
 

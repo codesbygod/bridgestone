@@ -33,8 +33,15 @@ async function chat(browser, base) {
   await page.click('#chat-toggle');
   await page.fill('#chat-input', 'Do you take on marine structures?');
   await page.press('#chat-input', 'Enter');
+  // Wait for an answer after the visitor's message. The widget's greeting is
+  // already an agent message, so counting agent messages alone can read the
+  // log before the reply has landed.
   await page.waitForFunction(
-    () => document.querySelectorAll('#chat-log .chat-msg.agent:not(.typing)').length >= 1,
+    () => {
+      const msgs = Array.from(document.querySelectorAll('#chat-log .chat-msg'));
+      const asked = msgs.findIndex((m) => m.classList.contains('user'));
+      return asked !== -1 && msgs.slice(asked + 1).some((m) => m.classList.contains('agent') && !m.classList.contains('typing'));
+    },
     null,
     { timeout: 15000 }
   );

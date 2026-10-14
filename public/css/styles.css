@@ -2193,5 +2193,353 @@ h1, h2, h3 { font-weight: 700; letter-spacing: -0.025em; }
   .stats-strip .stat:first-child { padding-left: 16px; }
 }
 
-/* The careers header photograph is square with the team high in the frame. */
-.page-careers .page-header-media { background-position: 50% 30% !important; }
+/* The careers header is a wide team photograph: keep the group centred. */
+.page-careers .page-header-media { background-position: 50% 45% !important; }
+
+/* =========================================================================
+   Construction theme: safety yellow and black
+   The final layer. Yellow and black carry the brand, safety orange warms the
+   gradients, and white keeps the page crisp. Yellow is never text on a light
+   ground (1.6:1); there it is a fill, a marker or a stripe, and the words
+   stay black. Surfaces are sharper: smaller radii, firmer lines, heavier type.
+   ========================================================================= */
+
+:root {
+  --bg-rgb:    250 250 247;
+  --bg-2:      #ffffff;
+  --panel:     #ffffff;
+  --panel-2:   #f1f0eb;
+  --ink:       #0f0f0f;
+  --ink-soft:  #2b2b2b;
+  --muted:     #555555;
+  --faint:     #666666;
+  --line:      rgba(15, 15, 15, 0.16);
+  --line-2:    rgba(15, 15, 15, 0.08);
+
+  --yellow:      #ffc20e;
+  --yellow-hi:   #ffd84d;
+  --yellow-deep: #e9a800;
+  --orange:      #ff6b1a;
+  --black:       #0f0f0f;
+  --charcoal:    #1b1b1b;
+
+  /* The earlier layers read these names; point them at the new palette. */
+  --accent:     var(--black);
+  --accent-2:   var(--black);
+  --accent-ink: #ffffff;
+  --brass:      var(--yellow);
+  --brass-soft: var(--yellow-hi);
+  --deep:       var(--black);
+  --stone:      var(--yellow);
+  --on-image:   #ffffff;
+  --radius:     4px;
+
+  --hazard: repeating-linear-gradient(-45deg, var(--yellow) 0 12px, var(--black) 12px 24px);
+  --glow-yellow: 0 18px 40px -18px rgb(255 194 14 / 0.75);
+
+  /* Glass: a tinted pane, a bright top edge, a soft drop. */
+  --glass-light: rgb(255 255 255 / 0.55);
+  --glass-dark:  rgb(15 15 15 / 0.55);
+  --glass-edge-light: rgb(15 15 15 / 0.18);
+  --glass-edge-dark:  rgb(255 255 255 / 0.32);
+  --glass-shine: inset 0 1px 0 rgb(255 255 255 / 0.6), inset 0 -1px 0 rgb(0 0 0 / 0.12);
+}
+
+::selection { background: var(--yellow); color: var(--black); }
+:focus-visible { outline: 2px solid var(--black); outline-offset: 2px; box-shadow: 0 0 0 5px var(--yellow); }
+
+h1, h2, h3 { letter-spacing: -0.03em; }
+.section-head h2, .page-header-inner h1, .page-header-copy h1, .notfound h1 { font-weight: 800; }
+
+/* Eyebrows: black words, a yellow block; yellow words on dark grounds. */
+.eyebrow, .section-head .eyebrow, .page-header-inner .eyebrow { color: var(--black) !important; font-weight: 600; }
+.eyebrow::before { background: var(--yellow); box-shadow: 0 0 0 1.5px var(--black); }
+.hero .eyebrow, .hero-tag { color: var(--yellow) !important; }
+.hero .eyebrow::before { box-shadow: none; }
+
+/* Bar: black glass with a yellow edge. */
+.nav {
+  background: rgb(15 15 15 / 0.82) !important;
+  backdrop-filter: blur(14px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(1.4) !important;
+  border-bottom: 1px solid rgb(255 194 14 / 0.45) !important;
+  view-transition-name: site-nav;
+}
+.nav-links a { color: rgb(255 255 255 / 0.86) !important; transition: color .25s var(--ease); }
+.nav-links a:hover { color: var(--yellow) !important; }
+.nav-links a.is-active { color: var(--yellow) !important; border-bottom-color: var(--yellow); }
+@media (max-width: 720px) {
+  .nav-links.open { background: rgb(250 250 247 / 0.94); }
+  .nav-links.open a, .nav-links.open a:hover { color: var(--black) !important; }
+  .nav-links.open a.is-active { color: var(--black) !important; text-decoration: underline; text-decoration-color: var(--yellow); text-decoration-thickness: 4px; text-underline-offset: 6px; }
+}
+
+/* Buttons: glass. A tinted, blurred pane with a lit top edge, a sheen that
+   sweeps across on hover, and a lift that settles. Yellow for the primary
+   action, clear glass for the second. */
+.btn,
+.chapter .btn,
+.hero .hero-actions .btn:first-child,
+.contact-grid form .btn,
+.chapter .contact-grid form .btn,
+.nav .btn.nav-cta {
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, rgb(255 216 77 / 0.96) 0%, rgb(255 194 14 / 0.92) 55%, rgb(255 170 0 / 0.9) 100%) !important;
+  color: var(--black) !important;
+  border: 1px solid rgb(255 255 255 / 0.55) !important;
+  backdrop-filter: blur(12px) saturate(1.6);
+  -webkit-backdrop-filter: blur(12px) saturate(1.6);
+  box-shadow: var(--glass-shine), var(--glow-yellow) !important;
+  font-weight: 600;
+  transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out), background .35s var(--ease-out) !important;
+}
+.btn:hover,
+.chapter .btn:hover,
+.hero .hero-actions .btn:first-child:hover,
+.contact-grid form .btn:hover,
+.nav .btn.nav-cta:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgb(255 224 110 / 0.98) 0%, rgb(255 200 30 / 0.95) 55%, rgb(255 150 20 / 0.92) 100%) !important;
+  box-shadow: var(--glass-shine), 0 24px 50px -20px rgb(255 160 0 / 0.85) !important;
+  color: var(--black) !important;
+}
+.btn::before { background: linear-gradient(105deg, transparent 30%, rgb(255 255 255 / 0.55) 48%, transparent 66%) !important; }
+
+.btn.ghost,
+.chapter .btn.ghost,
+.section-head .btn.ghost,
+.roles-cta .btn.ghost {
+  background: var(--glass-light) !important;
+  color: var(--black) !important;
+  border: 1px solid var(--glass-edge-light) !important;
+  box-shadow: var(--glass-shine), 0 12px 30px -20px rgb(15 15 15 / 0.45) !important;
+}
+.btn.ghost:hover,
+.chapter .btn.ghost:hover,
+.section-head .btn.ghost:hover,
+.roles-cta .btn.ghost:hover {
+  background: rgb(255 255 255 / 0.85) !important;
+  border-color: var(--black) !important;
+  color: var(--black) !important;
+  box-shadow: var(--glass-shine), 0 18px 40px -20px rgb(15 15 15 / 0.55) !important;
+}
+.hero .btn.ghost {
+  background: rgb(255 255 255 / 0.12) !important;
+  border: 1px solid var(--glass-edge-dark) !important;
+  color: #fff !important;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.35), 0 12px 30px -18px rgb(0 0 0 / 0.6) !important;
+}
+.hero .btn.ghost:hover { background: rgb(255 255 255 / 0.22) !important; border-color: rgb(255 255 255 / 0.75) !important; color: #fff !important; }
+
+/* Hero: black wash for the words, a black glass readout with a yellow edge. */
+.hero { background-color: var(--black) !important; }
+.hero-scrim {
+  background:
+    linear-gradient(90deg, rgb(10 10 10 / 0.82) 0%, rgb(10 10 10 / 0.5) 38%, rgb(10 10 10 / 0) 70%),
+    linear-gradient(180deg, rgb(10 10 10 / 0.35) 0%, rgb(10 10 10 / 0) 30%, rgb(10 10 10 / 0.55) 100%) !important;
+}
+.hero h1 { font-weight: 800; }
+.hero-readout {
+  background: rgb(15 15 15 / 0.62) !important;
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border-top: 4px solid var(--yellow) !important;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.12), 0 30px 60px -30px rgb(0 0 0 / 0.7) !important;
+}
+.hero-readout .k { color: var(--yellow) !important; }
+.hero-readout .v { color: #fff !important; }
+.hero-work { background: rgb(15 15 15 / 0.6); border-color: rgb(255 194 14 / 0.6); }
+.hero-work-k { color: var(--yellow); }
+.hero-work .arw { color: var(--yellow); }
+
+/* Chapters: a hazard stripe under each photograph. */
+.chapter-media::after { height: 8px !important; background: var(--hazard) !important; }
+.chapter:nth-of-type(even) { background: #ffffff !important; }
+
+/* Track record: a full safety-yellow band, hazard-striped top and bottom. */
+#metrics { background: var(--yellow) !important; color: var(--black) !important; position: relative; }
+#metrics::before, #metrics::after {
+  content: ""; position: absolute; left: 0; right: 0; height: 10px; background: var(--hazard); z-index: 2;
+}
+#metrics::before { top: 0; }
+#metrics::after { bottom: 0; }
+#metrics .section-head h2, #metrics .stat .num, #metrics .stat .lbl, #metrics .section-head p, #metrics .eyebrow { color: var(--black) !important; }
+#metrics .eyebrow::before { background: var(--black); box-shadow: none; }
+#metrics .stats-grid, #metrics .stat { border-color: rgb(15 15 15 / 0.22) !important; }
+#metrics .stat .num em { color: var(--black) !important; text-decoration: underline; text-decoration-color: var(--orange); text-decoration-thickness: 6px; text-underline-offset: 8px; }
+#metrics .stat .lbl { opacity: 0.85; font-weight: 600; }
+#metrics .stat {
+  background: rgb(255 255 255 / 0.18) !important;
+  backdrop-filter: blur(6px);
+  transition: background .3s var(--ease) !important;
+}
+#metrics .stat:hover { background: rgb(255 255 255 / 0.4) !important; }
+
+/* Cards and panels: white, sharp, firmly edged; yellow tags for labels. */
+.cards-grid .card,
+.chapter .cards-grid .card,
+.services-grid .service,
+.service-row {
+  background: #ffffff !important;
+  border: 1px solid rgb(15 15 15 / 0.14) !important;
+  border-radius: var(--radius) !important;
+}
+.card .thumb { border-bottom: 4px solid var(--yellow); }
+.card .meta .sector,
+.service .code,
+.service-row-body .code,
+.role .team {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--black) !important;
+  padding: 3px 8px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+.card .metric b { color: var(--black); }
+.service::before { background: var(--yellow) !important; width: 4px !important; }
+.service li, .service-row-body li { border-color: rgb(15 15 15 / 0.2); border-radius: 2px; }
+.link-arrow { color: var(--black) !important; text-decoration: underline; text-decoration-color: var(--yellow); text-decoration-thickness: 3px; text-underline-offset: 5px; font-weight: 600; }
+.service-row:hover .service-row-go, .project-next .arw { color: var(--black) !important; }
+.project-next .arw { background: var(--yellow); border-radius: 50%; width: 52px; height: 52px; display: inline-grid; place-items: center; font-size: 28px; }
+
+.chip { border-radius: 999px !important; background: var(--glass-light) !important; border-color: rgb(15 15 15 / 0.2) !important; color: var(--black) !important; }
+.chip:hover { border-color: var(--black) !important; }
+.chip.active { background: var(--black) !important; color: var(--yellow) !important; border-color: var(--black) !important; }
+
+/* Leadership: a yellow offset block behind the portrait. */
+.leadership-media { box-shadow: 16px 16px 0 var(--yellow), 16px 16px 0 1.5px var(--black) !important; border-radius: var(--radius) !important; }
+.leadership-badge { background: var(--black); color: var(--yellow); }
+.leadership-body blockquote { border-left: 5px solid var(--yellow); }
+
+/* Interior headers and case studies. */
+.page-header-media { border-bottom: 0 !important; }
+.page-header-media::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: var(--hazard); }
+.page-header-figure { border-bottom: 0; position: relative; }
+.page-header-figure::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: var(--hazard); }
+.case-stats { background: var(--black); border-bottom: 4px solid var(--yellow); }
+.stats-strip .stat:first-child .num { color: var(--yellow) !important; }
+.case-section h3 { color: var(--black); }
+.case-section h3::after { content: ""; display: block; width: 36px; height: 4px; margin-top: 8px; background: var(--yellow); }
+.scope-list li::before { background: var(--yellow); box-shadow: 0 0 0 1.5px var(--black); }
+.timeline { border-left-color: var(--black); }
+.timeline li::before { border-color: var(--black); background: var(--yellow); }
+.project-services a:hover { border-color: var(--black); color: var(--black); background: var(--yellow); }
+.crumb:hover { color: var(--black); text-decoration: underline; text-decoration-color: var(--yellow); text-decoration-thickness: 3px; }
+.cta-band { background: var(--yellow); }
+.cta-band::after { display: none; }
+.cta-inner h2, .cta-inner p { color: var(--black) !important; }
+.cta-band .btn {
+  background: linear-gradient(135deg, rgb(40 40 40 / 0.95), rgb(10 10 10 / 0.95)) !important;
+  color: var(--yellow) !important;
+  border-color: rgb(255 255 255 / 0.2) !important;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.18), 0 18px 40px -18px rgb(0 0 0 / 0.6) !important;
+}
+.cta-band .btn:hover { color: var(--yellow) !important; background: linear-gradient(135deg, rgb(60 60 60 / 0.95), rgb(15 15 15 / 0.95)) !important; }
+
+/* Forms: crisp fields, a yellow focus halo. */
+.field input, .field select, .field textarea { background: #ffffff; border: 1px solid rgb(15 15 15 / 0.2); }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--black); box-shadow: 0 0 0 4px rgb(255 194 14 / 0.55); background: #ffffff; }
+.contact-detail a { border-bottom: 3px solid var(--yellow); }
+.contact-note { border-left: 4px solid var(--yellow); }
+
+/* Footer: black with a hazard edge. */
+.footer { background: var(--black) !important; border-top: 0 !important; position: relative; }
+.footer::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 8px; background: var(--hazard); }
+.footer .col h5 { color: var(--yellow); }
+.footer .col a:hover { color: var(--yellow); }
+
+/* Chat: a yellow glass button, a black head, yellow visitor bubbles. */
+.chat-toggle {
+  background: linear-gradient(135deg, rgb(255 216 77 / 0.95), rgb(255 180 0 / 0.92));
+  color: var(--black);
+  border: 1px solid rgb(255 255 255 / 0.6);
+  box-shadow: var(--glass-shine), 0 0 0 4px rgb(15 15 15 / 0.85), 0 16px 34px -12px rgb(0 0 0 / 0.55);
+  backdrop-filter: blur(10px);
+}
+.chat-toggle:hover { background: linear-gradient(135deg, rgb(255 224 110), rgb(255 160 0)); }
+.chat-head { background: var(--black); border-bottom: 3px solid var(--yellow); }
+.chat-msg.user { background: var(--yellow); color: var(--black); border-color: var(--yellow); }
+.chat-form button { background: var(--black); color: var(--yellow); }
+.chat-form button:hover { background: var(--charcoal); }
+
+.scroll-progress { height: 3px; background: linear-gradient(90deg, var(--yellow), var(--orange)); box-shadow: 0 0 12px rgb(255 160 0 / 0.7); }
+.chapter-rail a.is-active .tick { background: var(--yellow) !important; box-shadow: 0 0 0 1px var(--black); }
+
+/* =========================================================================
+   Motion: card tilt, shuffle, page transitions
+   ========================================================================= */
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+
+/* Cards tilt toward the pointer and catch a glint of light. The same
+   transform carries the shuffle-in: a card arrives turned and dropped, as if
+   dealt, and settles square. main.js sets the angles. */
+.cards-grid .card,
+.services-grid .service,
+.service-row,
+.leadership-media {
+  --lift: 0px; --deal: 0deg; --deal-s: 1;
+  position: relative;
+  transform: perspective(1000px) translateY(var(--lift)) rotate(var(--deal)) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(var(--deal-s)) !important;
+  transform-style: preserve-3d;
+  transition:
+    transform .75s var(--ease-out) var(--reveal-delay, 0ms),
+    opacity .6s var(--ease-out) var(--reveal-delay, 0ms),
+    box-shadow .35s var(--ease),
+    border-color .35s var(--ease) !important;
+  will-change: transform;
+}
+.cards-grid .card[data-reveal]:not(.in),
+.services-grid .service[data-reveal]:not(.in),
+.service-row[data-reveal]:not(.in),
+.leadership-media[data-reveal]:not(.in) {
+  --lift: 46px; --deal: var(--deal-r, -3deg); --deal-s: 0.94;
+}
+.is-tilting {
+  --lift: -6px;
+  transition: transform .12s linear, box-shadow .35s var(--ease), border-color .35s var(--ease) !important;
+  box-shadow: 0 30px 60px -28px rgb(15 15 15 / 0.55), 0 0 0 1.5px var(--black) !important;
+  z-index: 3;
+}
+.leadership-media.is-tilting { box-shadow: 16px 16px 0 var(--yellow), 16px 16px 0 1.5px var(--black), 0 30px 60px -28px rgb(15 15 15 / 0.55) !important; }
+.cards-grid .card::after,
+.services-grid .service::after,
+.service-row::after,
+.leadership-media::after {
+  content: "";
+  position: absolute; inset: 0; z-index: 4; pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgb(255 255 255 / 0.42), rgb(255 255 255 / 0) 46%);
+  opacity: 0;
+  transition: opacity .3s var(--ease);
+  mix-blend-mode: soft-light;
+}
+.is-tilting::after { opacity: 1; }
+
+/* Filtering projects shuffles the deck: the cards fly out turned, the new
+   set is dealt back in. */
+.cards-grid.is-shuffling .card {
+  --lift: -24px; --deal: var(--deal-r, 4deg); --deal-s: 0.9;
+  opacity: 0 !important;
+  transition-duration: .26s !important;
+  transition-delay: 0ms !important;
+}
+
+/* Pages cross-fade into one another; the bar stays put. */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: page-out .26s var(--ease) both; }
+::view-transition-new(root) { animation: page-in .45s var(--ease-out) both; }
+@keyframes page-out { to { opacity: 0; transform: translateY(-10px); } }
+@keyframes page-in { from { opacity: 0; transform: translateY(14px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+  .cards-grid .card, .services-grid .service, .service-row, .leadership-media {
+    --lift: 0px !important; --deal: 0deg !important; --deal-s: 1 !important; transition: none !important;
+  }
+  .is-tilting::after { opacity: 0; }
+}

@@ -10,6 +10,14 @@
     },
     "capabilities": {
       "prefer": [
+        "site-team-drawings",
+        "office-floor",
+        "capabilities"
+      ],
+      "fallback": "/assets/img/placeholder.svg"
+    },
+    "servicesHeader": {
+      "prefer": [
         "office-floor",
         "capabilities"
       ],
@@ -44,9 +52,9 @@
     },
     "careersHeader": {
       "prefer": [
+        "careers-team",
         "plant-team-review",
-        "careers-header",
-        "capabilities"
+        "careers-header"
       ],
       "fallback": "/assets/img/placeholder.svg"
     },

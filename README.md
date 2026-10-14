@@ -189,14 +189,17 @@ npm run test:browser                    # CHROME_PATH=... if it is not on the de
 
 - Pages share one layout (`src/site/layout.js`) rendered to static HTML at build
   time, so the nav, footer and chat widget stay consistent with no client-side flash.
-- The palette is limestone ground, slate type, a deep bridge green (`--accent`,
-  `--deep`) and one brass accent (`--brass`), with a darker bronze (`--accent-2`)
-  wherever the accent is small text on the light ground. Type is Archivo for
-  headings, Manrope for body copy and JetBrains Mono for labels. The palette and
-  type are tokens at the top of `public/css/styles.css`, and the "Bridgestone
-  theme" block at the end of that file has the final say on components.
-  `--bg-rgb` is the one token every wash over a photograph reads from, so the
-  whole site's brightness is a single edit.
+- The palette is safety yellow and black, with safety orange in the gradients
+  and white keeping the page crisp. Yellow is never text on a light ground; there
+  it is a fill, a marker or a hazard stripe, and the words stay black. Type is
+  Archivo for headings, Manrope for body copy and JetBrains Mono for labels. The
+  tokens sit in the "Construction theme" block at the end of
+  `public/css/styles.css`, which has the final say on components.
+- Motion: buttons are glass (a tinted, blurred pane that a sheen crosses on
+  hover); cards tilt toward the pointer and catch a glint; labels shuffle their
+  letters into place as they arrive; cards are dealt in at random angles, and
+  filtering projects shuffles the deck. Pages cross-fade into one another with
+  the View Transitions API. All of it switches off under `prefers-reduced-motion`.
 - The home hero **rests on its own photograph** and glimpses selected projects in
   turn, crossfading back to the resting image between each one (about 9 seconds
   at rest, 3.5 on each project, with a caption linking to the project on show).

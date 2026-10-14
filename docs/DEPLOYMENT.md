@@ -52,12 +52,13 @@ present.
 | File | Where it appears | Suggested size |
 | ---- | ---------------- | -------------- |
 | `site-overlook` (else `hero`) | The landing page hero's resting image | 2400 x 1030 (21:9) |
-| `office-floor` (else `capabilities`) | Capabilities chapter and the `/services` header | 1920 x 1080 |
+| `site-team-drawings` (else `office-floor`) | Capabilities chapter, the first section after the hero | 1920 x 1080 |
+| `office-floor` (else `capabilities`) | The `/services` header | 1920 x 1080 |
 | `track-record` | Track record chapter and the `/apply` header | 1920 x 1080 |
 | `harbour-silos` (else `work`) | Selected work chapter | 1920 x 1080 |
 | `studio` | Contact chapter | 1920 x 1080 |
 | `power-plant-team` (else `projects-header`) | The `/projects` header | 2400 x 1030 |
-| `plant-team-review` (else `careers-header`) | The `/careers` header | 1920 x 1080 |
+| `careers-team` (else `plant-team-review`) | The `/careers` header | 1920 x 1080 |
 | `site-inspection` (else `contact-header`) | The `/contact` header | 1920 x 1080 |
 
 **Hero slideshow.** The hero rests on `hero` and briefly shows the projects listed

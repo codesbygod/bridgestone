@@ -123,7 +123,7 @@ const leadershipSection = chapter({
     .map((person, i) => `
       <div class="leadership">
         <div class="leadership-media" data-reveal>
-          <img src="${person.image}" alt="Portrait of ${person.name}" loading="lazy" />
+          <img src="${person.image}" alt="Portrait of ${person.name}" loading="lazy"${person.imageFocus ? ` style="object-position:${person.imageFocus}"` : ''} />
           <span class="leadership-badge">${person.role}</span>
         </div>
         <div class="leadership-body" data-reveal>
@@ -313,7 +313,7 @@ const projectPages = projects.map((project, i) => ({
 
 /* ---------- Services listing ---------- */
 const servicesContent = `
-  ${pageHeader({ eyebrow: 'What we do', title: 'Services.', sub: 'Eight disciplines under one roof, from the first ground investigation to the day we hand over the keys.', image: images.capabilities })}
+  ${pageHeader({ eyebrow: 'What we do', title: 'Services.', sub: 'Eight disciplines under one roof, from the first ground investigation to the day we hand over the keys.', image: images.servicesHeader })}
   <section class="section-pad">
     <div class="wrap">
       <div class="service-index" id="service-index"></div>

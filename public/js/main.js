@@ -58,6 +58,12 @@
       els.forEach((el) => el.classList.add('in'));
       return;
     }
+    // Each card arrives at its own angle, like one dealt from a shuffled deck.
+    els.forEach((el) => {
+      if (!el.style.getPropertyValue('--deal-r')) {
+        el.style.setProperty('--deal-r', ((Math.random() * 2 - 1) * 6).toFixed(1) + 'deg');
+      }
+    });
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (!e.isIntersecting) return;
@@ -67,6 +73,8 @@
         const step = Math.min(peers.indexOf(el), 5);
         el.style.setProperty('--reveal-delay', (step * 90) + 'ms');
         el.classList.add('in');
+        // Once it has arrived, hover and tilt should respond without the stagger.
+        el.addEventListener('transitionend', () => el.style.removeProperty('--reveal-delay'), { once: true });
         io.unobserve(el);
       });
     }, { threshold: 0.06, rootMargin: '0px 0px -6% 0px' });
@@ -183,22 +191,88 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll, { passive: true });
 
-  /* A restrained pointer tilt gives the glass surfaces physical depth without
-     changing layout. Touch and reduced-motion users keep the static view. */
-  if (!reduceMotion && window.matchMedia('(pointer: fine)').matches) {
-    const tiltTargets = $$('.hero-copy, .nav, .service, .project, .leadership-media');
-    tiltTargets.forEach((target) => {
-      target.addEventListener('pointermove', (event) => {
-        const box = target.getBoundingClientRect();
-        const x = (event.clientX - box.left) / box.width - 0.5;
-        const y = (event.clientY - box.top) / box.height - 0.5;
-        target.style.setProperty('--tilt-x', `${(-y * 3.5).toFixed(2)}deg`);
-        target.style.setProperty('--tilt-y', `${(x * 4.5).toFixed(2)}deg`);
-      });
-      target.addEventListener('pointerleave', () => {
-        target.style.setProperty('--tilt-x', '0deg');
-        target.style.setProperty('--tilt-y', '0deg');
-      });
+  /* Cards tilt toward the pointer and catch a glint of light. One delegated
+     handler covers cards rendered after load (projects, services) as well as
+     the ones in the page. Touch and reduced-motion users keep the static view. */
+  const TILT = '.cards-grid .card, .services-grid .service, .service-row, .leadership-media';
+  if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    let tilted = null;
+    const settle = (el) => {
+      el.classList.remove('is-tilting');
+      ['--rx', '--ry', '--gx', '--gy'].forEach((v) => el.style.removeProperty(v));
+    };
+    document.addEventListener('pointermove', (event) => {
+      const el = event.target.closest ? event.target.closest(TILT) : null;
+      if (el !== tilted) {
+        if (tilted) settle(tilted);
+        tilted = el;
+      }
+      if (!el || (el.hasAttribute('data-reveal') && !el.classList.contains('in'))) return;
+      const box = el.getBoundingClientRect();
+      const x = (event.clientX - box.left) / box.width;
+      const y = (event.clientY - box.top) / box.height;
+      el.classList.add('is-tilting');
+      el.style.setProperty('--rx', ((0.5 - y) * 10).toFixed(2) + 'deg');
+      el.style.setProperty('--ry', ((x - 0.5) * 12).toFixed(2) + 'deg');
+      el.style.setProperty('--gx', (x * 100).toFixed(1) + '%');
+      el.style.setProperty('--gy', (y * 100).toFixed(1) + '%');
+    }, { passive: true });
+    document.documentElement.addEventListener('pointerleave', () => {
+      if (tilted) settle(tilted);
+      tilted = null;
+    });
+  }
+
+  /* Shuffle: a label's letters tumble through random characters and lock in
+     left to right. Screen readers get the real words throughout, from a
+     visually hidden copy; the tumbling copy is hidden from them. */
+  const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#/+';
+  function shuffleText(el) {
+    if (el.dataset.shuffling || el.children.length) return;
+    const final = el.textContent;
+    if (!final.trim()) return;
+    el.dataset.shuffling = '1';
+    const real = document.createElement('span');
+    real.className = 'sr-only';
+    real.textContent = final;
+    const shown = document.createElement('span');
+    shown.setAttribute('aria-hidden', 'true');
+    el.textContent = '';
+    el.append(real, shown);
+    const begin = performance.now();
+    const duration = 500 + final.length * 14;
+    const step = (now) => {
+      const p = Math.min(1, (now - begin) / duration);
+      const locked = Math.floor(p * final.length);
+      let out = final.slice(0, locked);
+      for (let i = locked; i < final.length; i += 1) {
+        out += /\s/.test(final[i]) ? final[i] : GLYPHS[(Math.random() * GLYPHS.length) | 0];
+      }
+      shown.textContent = out;
+      if (p < 1) requestAnimationFrame(step);
+      else { el.textContent = final; delete el.dataset.shuffling; }
+    };
+    requestAnimationFrame(step);
+  }
+
+  function setupShuffle() {
+    if (reduceMotion) return;
+    // Labels shuffle once as they come into view.
+    const labels = $$('.eyebrow, .hero-readout .k');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          shuffleText(e.target);
+          io.unobserve(e.target);
+        });
+      }, { threshold: 0.6 });
+      labels.forEach((el) => io.observe(el));
+    }
+    // Menu links and filter chips shuffle on hover.
+    document.addEventListener('pointerover', (event) => {
+      const el = event.target.closest ? event.target.closest('.nav-links a, .chip') : null;
+      if (el && !el.contains(event.relatedTarget)) shuffleText(el);
     });
   }
 
@@ -428,6 +502,7 @@
     setupForms();
     hydrateHome();
     observeReveals();
+    setupShuffle();
     frame();
   });
 })();
